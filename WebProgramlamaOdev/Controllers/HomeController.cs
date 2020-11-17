@@ -16,6 +16,7 @@ namespace WebProgramlamaOdev.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            int c=0;
         }
 
         public IActionResult Index()
