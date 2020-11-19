@@ -19,5 +19,8 @@ namespace WebProgramlamaOdev.Models
         public DateTime USER_BIRTHDATE { get; set; }
         public int USER_BALANCE { get; set; }
         public bool USER_ISADMIN { get; set; }
+        public UserPokemon UserPokemon { get; set; }
+        public UserWishlist UserWishlist { get; set; }
+        
     }
 }

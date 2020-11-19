@@ -10,8 +10,10 @@ namespace WebProgramlamaOdev.Models
     {
         [Key]
         public int USER_WISH_ID { get; set; }
-        public ICollection<Pokemon> POKEMON_ID { get; set; }
-        public ICollection<User> USER_ID { get; set; }
+        public int POKEMON_ID { get; set; }
+        public int USER_ID { get; set; }
         public DateTime CREATION_DATE { get; set; }
+        public User User { get; set; }
+        public Pokemon Pokemon { get; set; }
     }
 }

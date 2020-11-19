@@ -12,6 +12,7 @@ namespace WebProgramlamaOdev.Models
         [Key]
         public int STAT_ID { get; set; }
         public string STAT_NAME { get; set; }
+        public PokemonStat PokemonStat { get; set; }
 
 
     }

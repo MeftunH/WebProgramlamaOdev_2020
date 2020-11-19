@@ -10,7 +10,9 @@ namespace WebProgramlamaOdev.Models
     {
         [Key]
         public int POKEMON_TYPE_ID { get; set; }
-        public ICollection<Pokemon> POKEMON_ID { get; set; }
-        public ICollection<Type> TYPE_ID { get; set; }
+        public int POKEMON_ID { get; set; }
+        public int TYPE_ID { get; set; }
+        public Pokemon Pokemon { get; set; }
+        public Type Type { get; set; }
     }
 }
