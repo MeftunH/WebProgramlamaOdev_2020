@@ -12,6 +12,70 @@ namespace WebProgramlamaOdev.Models
         {   //Connection String Buraya Yazılacak.
             optionsBuilder.UseSqlServer("server=DESKTOP-N1H4DB1; database=corepokedex;integrated security=true;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PokemonAbility>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.PokemonAbility)
+                .HasForeignKey<PokemonAbility>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<PokemonAbility>()
+                .HasOne(a => a.Ability)
+                .WithOne(b => b.PokemonAbility)
+                .HasForeignKey<PokemonAbility>(a => a.ABILITY_ID);
+           
+            modelBuilder.Entity<PokemonStat>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.PokemonStat)
+                .HasForeignKey<PokemonStat>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<PokemonStat>()
+                .HasOne(a => a.Stat)
+                .WithOne(b => b.PokemonStat)
+                .HasForeignKey<PokemonStat>(a => a.STAT_ID);
+            
+            modelBuilder.Entity<PokemonType>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.PokemonType)
+                .HasForeignKey<PokemonType>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<PokemonType>()
+                .HasOne(a => a.Type)
+                .WithOne(b => b.PokemonType)
+                .HasForeignKey<PokemonType>(a => a.TYPE_ID);
+
+            modelBuilder.Entity<PokemonWeakness>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.PokemonWeakness)
+                .HasForeignKey<PokemonWeakness>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<PokemonWeakness>()
+                .HasOne(a => a.Weakness)
+                .WithOne(b => b.PokemonWeakness)
+                .HasForeignKey<PokemonWeakness>(a => a.WEAKNESS_ID);
+            
+            modelBuilder.Entity<UserPokemon>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.UserPokemon)
+                .HasForeignKey<UserPokemon>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<UserPokemon>()
+                .HasOne(a => a.User)
+                .WithOne(b => b.UserPokemon)
+                .HasForeignKey<UserPokemon>(a => a.USER_ID);
+            
+            modelBuilder.Entity<UserWishlist>()
+                .HasOne(a => a.Pokemon)
+                .WithOne(b => b.UserWishlist)
+                .HasForeignKey<UserWishlist>(a => a.POKEMON_ID);
+
+            modelBuilder.Entity<UserWishlist>()
+                .HasOne(a => a.User)
+                .WithOne(b => b.UserWishlist)
+                .HasForeignKey<UserWishlist>(a => a.USER_ID);
+
+        }
         public DbSet<Pokemon> POKEMON { get; set; }
         public DbSet<Type> TYPE { get; set; }
         public DbSet<PokemonType> POKEMON_TYPE { get; set; }

@@ -12,5 +12,6 @@ namespace WebProgramlamaOdev.Models
         [Key]
         public int TYPE_ID { get; set; }
         public string TYPE_NAME { get; set; }
+        public PokemonType PokemonType { get; set; }
     }
 }

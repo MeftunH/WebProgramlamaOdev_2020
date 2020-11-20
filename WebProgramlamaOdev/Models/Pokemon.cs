@@ -15,5 +15,11 @@ namespace WebProgramlamaOdev.Models
         public string POKEMON_CATEGORY { get; set; }
         public string POKEMON_IMG_URL { get; set; }
         public int POKEMON_PRICE { get; set; }
+        public PokemonAbility PokemonAbility { get; set; }
+        public PokemonStat PokemonStat { get; set; }
+        public PokemonType PokemonType { get; set; }
+        public PokemonWeakness PokemonWeakness { get; set; }
+        public UserPokemon UserPokemon { get; set; }
+        public UserWishlist UserWishlist { get; set; }
     }
 }
