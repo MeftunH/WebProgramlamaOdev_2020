@@ -10,8 +10,8 @@ using WebProgramlamaOdev.Models;
 namespace WebProgramlamaOdev.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20201119195557_seconMigration")]
-    partial class seconMigration
+    [Migration("20201130195054_Migration01")]
+    partial class Migration01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,9 @@ namespace WebProgramlamaOdev.Migrations
                     b.Property<string>("POKEMON_IMG_URL")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("POKEMON_NAME")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("POKEMON_PRICE")
                         .HasColumnType("int");
 
@@ -81,11 +84,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("POKEMON_ABILITY_ID");
 
-                    b.HasIndex("ABILITY_ID")
-                        .IsUnique();
+                    b.HasIndex("ABILITY_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
                     b.ToTable("POKEMON_ABILITY");
                 });
@@ -108,11 +109,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("POKEMON_STAT_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
-                    b.HasIndex("STAT_ID")
-                        .IsUnique();
+                    b.HasIndex("STAT_ID");
 
                     b.ToTable("POKEMON_STAT");
                 });
@@ -132,11 +131,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("POKEMON_TYPE_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
-                    b.HasIndex("TYPE_ID")
-                        .IsUnique();
+                    b.HasIndex("TYPE_ID");
 
                     b.ToTable("POKEMON_TYPE");
                 });
@@ -156,11 +153,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("POKEMON_WEAKNESS_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
-                    b.HasIndex("WEAKNESS_ID")
-                        .IsUnique();
+                    b.HasIndex("WEAKNESS_ID");
 
                     b.ToTable("POKEMON_WEAKNESS");
                 });
@@ -246,11 +241,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("USER_POKEMON_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
-                    b.HasIndex("USER_ID")
-                        .IsUnique();
+                    b.HasIndex("USER_ID");
 
                     b.ToTable("USER_POKEMON");
                 });
@@ -273,11 +266,9 @@ namespace WebProgramlamaOdev.Migrations
 
                     b.HasKey("USER_WISH_ID");
 
-                    b.HasIndex("POKEMON_ID")
-                        .IsUnique();
+                    b.HasIndex("POKEMON_ID");
 
-                    b.HasIndex("USER_ID")
-                        .IsUnique();
+                    b.HasIndex("USER_ID");
 
                     b.ToTable("USER_WISHLIST");
                 });
@@ -300,14 +291,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.PokemonAbility", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Abilities", "Ability")
-                        .WithOne("PokemonAbility")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonAbility", "ABILITY_ID")
+                        .WithMany("PokemonAbility")
+                        .HasForeignKey("ABILITY_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("PokemonAbility")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonAbility", "POKEMON_ID")
+                        .WithMany("PokemonAbility")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -319,14 +310,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.PokemonStat", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("PokemonStat")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonStat", "POKEMON_ID")
+                        .WithMany("PokemonStat")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.Stat", "Stat")
-                        .WithOne("PokemonStat")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonStat", "STAT_ID")
+                        .WithMany("PokemonStat")
+                        .HasForeignKey("STAT_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -338,14 +329,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.PokemonType", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("PokemonType")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonType", "POKEMON_ID")
+                        .WithMany("PokemonType")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.Type", "Type")
-                        .WithOne("PokemonType")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonType", "TYPE_ID")
+                        .WithMany("PokemonType")
+                        .HasForeignKey("TYPE_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -357,14 +348,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.PokemonWeakness", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("PokemonWeakness")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonWeakness", "POKEMON_ID")
+                        .WithMany("PokemonWeakness")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.Weakness", "Weakness")
-                        .WithOne("PokemonWeakness")
-                        .HasForeignKey("WebProgramlamaOdev.Models.PokemonWeakness", "WEAKNESS_ID")
+                        .WithMany("PokemonWeakness")
+                        .HasForeignKey("WEAKNESS_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -376,14 +367,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.UserPokemon", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("UserPokemon")
-                        .HasForeignKey("WebProgramlamaOdev.Models.UserPokemon", "POKEMON_ID")
+                        .WithMany("UserPokemon")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.User", "User")
-                        .WithOne("UserPokemon")
-                        .HasForeignKey("WebProgramlamaOdev.Models.UserPokemon", "USER_ID")
+                        .WithMany("UserPokemon")
+                        .HasForeignKey("USER_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -395,14 +386,14 @@ namespace WebProgramlamaOdev.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.Models.UserWishlist", b =>
                 {
                     b.HasOne("WebProgramlamaOdev.Models.Pokemon", "Pokemon")
-                        .WithOne("UserWishlist")
-                        .HasForeignKey("WebProgramlamaOdev.Models.UserWishlist", "POKEMON_ID")
+                        .WithMany("UserWishlist")
+                        .HasForeignKey("POKEMON_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebProgramlamaOdev.Models.User", "User")
-                        .WithOne("UserWishlist")
-                        .HasForeignKey("WebProgramlamaOdev.Models.UserWishlist", "USER_ID")
+                        .WithMany("UserWishlist")
+                        .HasForeignKey("USER_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

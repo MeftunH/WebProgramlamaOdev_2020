@@ -12,6 +12,6 @@ namespace WebProgramlamaOdev.Models
         [Key]
         public int WEAKNESS_ID { get; set; }
         public string WEAKNESS_NAME { get; set; }
-        public PokemonWeakness PokemonWeakness { get; set; }
+        public ICollection<PokemonWeakness> PokemonWeakness { get; set; }
     }
 }

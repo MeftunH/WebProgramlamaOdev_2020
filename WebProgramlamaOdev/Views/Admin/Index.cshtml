@@ -1,0 +1,447 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin Kontrol Sayfası</h1>
+
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Pokemon Zayıflıkları
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProgramlamaOdev.ViewComponents.Admin.Weakness))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Pokemon Yetenekleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProgramlamaOdev.ViewComponents.Admin.Abilities))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Pokemon Özellikleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProgramlamaOdev.ViewComponents.Admin.Stats))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Pokemon Tipleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProgramlamaOdev.ViewComponents.Admin.Type))
+        </div>
+    </div>
+
+</div>
+
+<div class="d-flex flex-row justify-content-between align-items-center my-5" style="width:100%;background-color:#eee;padding:10px;border:1px solid #ccc;">
+    <a class="btn btn-lg btn-primary" href="@Url.Action("Index","NewType")">Pokemon Tipi Ekle</a>
+    <a class="btn btn-lg btn-dark" href="@Url.Action("Index","NewAbility")">Pokemon Yeteneği Ekle</a>
+    <a class="btn btn-lg btn-warning" href="@Url.Action("Index","NewStat")">Pokemon Özelliği Ekle</a>
+    <a class="btn btn-lg btn-danger" href="@Url.Action("Index","NewWeakness")">Pokemon Zayıflığı Ekle</a>
+</div>
+
+<a class="form-control btn btn-lg btn-primary" href="@Url.Action("Index","NewPokemon")">Yeni Pokemon Oluştur</a>
+
+
+<script>
+    $(document).ready(function () {
+        editAbility();
+        deleteAbility();
+        editStat();
+        deleteStat()
+        deleteType();
+        editType();
+        editWeakness();
+        deleteWeakness();
+    });
+
+    function editAbility() {
+        $('.ability-edit-submit').on('click', function () {
+            let ability = {};
+            ability.ABILITY_ID = $(this).attr('data-abilityid');
+            ability.ABILITY_NAME = $('#editModal-' + ability.ABILITY_ID + ' .ability-name-input').val();
+            ability.ABILITY_DESC = $('#editModal-' + ability.ABILITY_ID +' .ability-desc-input').val();
+
+            $.ajax({
+            url: '@Url.Action("EditAbility","Admin")',
+            type: "POST",
+            data: { ability: ability},
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Yeteneği Başarıyla Değiştirildi!",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Admin")';
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Başarısız !",
+                        text: "Pokemon Yeteneği Silinemedi! Hata: " + data,
+                        icon: "fail",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+            });
+
+        })
+
+    }
+
+    function deleteAbility() {
+        $('.ability-delete-button').on('click', function () {
+
+            swal({
+                title: "Bu Yeteneği Silmek İstediğinizden Emin Misiniz?",
+                text: "Bu Yetenek Silindikten Sonra Bir Daha Geri Alınama",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                         let ability = {};
+                         ability.ABILITY_ID = $(this).attr('data-abilityid');
+
+                         $.ajax({
+                         url: '@Url.Action("DeleteAbility","Admin")',
+                         type: "POST",
+                         data: { ability: ability},
+                         success: function (data) {
+                             if (data == "başarılı") {
+                                 swal({
+                                     title: "Başarılı !",
+                                     text: "Pokemon Yeteneği Başarıyla Silindi!",
+                                     icon: "success",
+                                     button: "Tamam",
+                                 }).then(function () {
+                                     window.location.href = '@Url.Action("Index","Admin")';
+                                 });
+
+                             }
+                             else {
+                                 swal({
+                                     title: "Başarısız !",
+                                     text: "Pokemon Yeteneği Silinemedi! Hata: " + data,
+                                     icon: "fail",
+                                     button: "Tamam",
+                                 });
+                             }
+
+                         }
+                         });
+                    } else {
+                        swal("Yetenek Silme İşlemi İptal Edildi !");
+                    }
+                });
+
+
+
+
+        })
+
+    }
+
+    function editStat() {
+        $('.stat-edit-submit').on('click', function () {
+            let stat = {};
+            stat.STAT_ID = $(this).attr('data-statid');
+            stat.STAT_NAME = $('#editStatModal-' + stat.STAT_ID + ' .stat-name-input').val();
+
+
+            $.ajax({
+            url: '@Url.Action("EditStat","Admin")',
+            type: "POST",
+            data: { stat: stat},
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Özelliği Başarıyla Değiştirildi!",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Admin")';
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Başarısız !",
+                        text: "Pokemon Özelliği Silinemedi! Hata: " + data,
+                        icon: "fail",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+            });
+
+        })
+
+    }
+
+    function deleteStat() {
+        $('.stat-delete-button').on('click', function () {
+
+            swal({
+                title: "Bu Özelliği Silmek İstediğinizden Emin Misiniz?",
+                text: "Bu Özellik Silindikten Sonra Bir Daha Geri Alınamaz",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                         let stat = {};
+                         stat.STAT_ID = $(this).attr('data-statid');
+
+                         $.ajax({
+                         url: '@Url.Action("DeleteStat","Admin")',
+                         type: "POST",
+                         data: { stat: stat},
+                         success: function (data) {
+                             if (data == "başarılı") {
+                                 swal({
+                                     title: "Başarılı !",
+                                     text: "Pokemon Özelliği Başarıyla Silindi!",
+                                     icon: "success",
+                                     button: "Tamam",
+                                 }).then(function () {
+                                     window.location.href = '@Url.Action("Index","Admin")';
+                                 });
+
+                             }
+                             else {
+                                 swal({
+                                     title: "Başarısız !",
+                                     text: "Pokemon Özelliği Silinemedi! Hata: " + data,
+                                     icon: "fail",
+                                     button: "Tamam",
+                                 });
+                             }
+
+                         }
+                         });
+                    } else {
+                        swal("Özellik Silme İşlemi İptal Edildi !");
+                    }
+            });
+
+
+
+
+        })
+
+    }
+
+    function deleteType() {
+        $('.type-delete-button').on('click', function () {
+
+            swal({
+                title: "Bu Pokemon Tipini Silmek İstediğinizden Emin Misiniz?",
+                text: "Bu Pokemon Tipi Silindikten Sonra Bir Daha Geri Alınamaz",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                         let type = {};
+                         type.TYPE_ID = $(this).attr('data-typeid');
+
+                         $.ajax({
+                         url: '@Url.Action("DeleteType","Admin")',
+                         type: "POST",
+                         data: { type: type},
+                         success: function (data) {
+                             if (data == "başarılı") {
+                                 swal({
+                                     title: "Başarılı !",
+                                     text: "Pokemon Tipi Başarıyla Silindi!",
+                                     icon: "success",
+                                     button: "Tamam",
+                                 }).then(function () {
+                                     window.location.href = '@Url.Action("Index","Admin")';
+                                 });
+
+                             }
+                             else {
+                                 swal({
+                                     title: "Başarısız !",
+                                     text: "Pokemon Tipi Silinemedi! Hata: " + data,
+                                     icon: "fail",
+                                     button: "Tamam",
+                                 });
+                             }
+                         }
+                         });
+                    }
+                    else {
+                        swal("Pokemon Tipi Silme İşlemi İptal Edildi !");
+                    }
+            });
+
+        })
+
+    }
+
+    function editType() {
+        $('.type-edit-submit').on('click', function () {
+            let type = {};
+            type.TYPE_ID = $(this).attr('data-typeid');
+            type.TYPE_NAME = $('#editTypeModal-' + type.TYPE_ID + ' .type-name-input').val();
+
+
+            $.ajax({
+            url: '@Url.Action("UpdateType","Admin")',
+            type: "POST",
+            data: { type: type},
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Tipi Başarıyla Değiştirildi!",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Admin")';
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Başarısız !",
+                        text: "Pokemon Tipi Silinemedi! Hata: " + data,
+                        icon: "fail",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+            });
+
+        })
+
+    }
+
+    function deleteWeakness() {
+        $('.weakness-delete-button').on('click', function () {
+
+            swal({
+                title: "Bu Pokemon Zayıflığını Silmek İstediğinizden Emin Misiniz?",
+                text: "Bu Pokemon Zayıflığı Silindikten Sonra Bir Daha Geri Alınamaz",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                         let weakness = {};
+                         weakness.WEAKNESS_ID = $(this).attr('data-weaknessid');
+
+                         $.ajax({
+                         url: '@Url.Action("DeleteWeakness","Admin")',
+                         type: "POST",
+                         data: { weakness: weakness},
+                         success: function (data) {
+                             if (data == "başarılı") {
+                                 swal({
+                                     title: "Başarılı !",
+                                     text: "Pokemon Zayıflığı Başarıyla Silindi!",
+                                     icon: "success",
+                                     button: "Tamam",
+                                 }).then(function () {
+                                     window.location.href = '@Url.Action("Index","Admin")';
+                                 });
+
+                             }
+                             else {
+                                 swal({
+                                     title: "Başarısız !",
+                                     text: "Pokemon Zayıflığı Silinemedi! Hata: " + data,
+                                     icon: "fail",
+                                     button: "Tamam",
+                                 });
+                             }
+                         }
+                         });
+                    }
+                    else {
+                        swal("Pokemon Zayıflığı Silme İşlemi İptal Edildi !");
+                    }
+            });
+
+        })
+
+    }
+
+    function editWeakness() {
+        $('.weakness-edit-submit').on('click', function () {
+            let weakness = {};
+            weakness.WEAKNESS_ID = $(this).attr('data-weaknessid');
+            weakness.WEAKNESS_NAME = $('#editWeaknessModal-' + weakness.WEAKNESS_ID + ' .weakness-name-input').val();
+
+
+            $.ajax({
+            url: '@Url.Action("EditWeakness","Admin")',
+            type: "POST",
+            data: { weakness: weakness},
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Zayıflığı Başarıyla Değiştirildi!",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Admin")';
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Başarısız !",
+                        text: "Pokemon Zayıflığı Silinemedi! Hata: " + data,
+                        icon: "fail",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+            });
+
+        })
+
+    }
+
+</script>
+

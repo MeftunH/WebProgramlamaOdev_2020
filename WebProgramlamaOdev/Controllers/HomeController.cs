@@ -12,5 +12,6 @@ namespace WebProgramlamaOdev.Controllers
         {
             return View();
         }
+      
     }
 }

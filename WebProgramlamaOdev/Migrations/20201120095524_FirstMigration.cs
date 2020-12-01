@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebProgramlamaOdev.Migrations
 {
-    public partial class seconMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +27,7 @@ namespace WebProgramlamaOdev.Migrations
                 {
                     POKEMON_ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    POKEMON_NAME = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     POKEMON_HEIGHT = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     POKEMON_WEIGHT = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     POKEMON_CATEGORY = table.Column<string>(type: "nvarchar(max)", nullable: true),

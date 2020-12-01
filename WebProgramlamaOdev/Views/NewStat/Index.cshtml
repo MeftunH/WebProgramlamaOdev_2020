@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Pokemon Özelliği</h1>
+<div class="form-group">
+    <input id="pokemon-stat-name-input" class="form-control" type="text" required placeholder="Pokemon Özelliği İsmini Giriniz" />
+    <button id="pokemon-stat-submit" class="form-control btn btn-lg btn-primary my-3">Oluştur</button>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        newStat();
+    });
+
+    function newStat() {
+        $('#pokemon-stat-submit').on('click', function () {
+            let stat = {};
+            stat.STAT_NAME = $('#pokemon-stat-name-input').val();
+
+            $.ajax({
+            url: '@Url.Action("NewStat","NewStat")',
+            type: "POST",
+            data: { stat: stat},
+            success: function (data) {
+                if (data == "başarılı")
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Özelliği Başarıyla Oluşturuldu!",
+                        icon: "success",
+                        button: "Tamam",
+                    });
+                else
+                    alert("Onaylama Başarısız!");
+            }
+            });
+
+        })
+
+    }
+</script>

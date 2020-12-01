@@ -1,0 +1,15 @@
+﻿@model List<WebProgramlamaOdev.Models.Weakness>
+
+<h1>Pokemon Zayıflıkları</h1>
+<select class="form-control" id="weakness-select">
+    @foreach (var weakness in Model)
+    {
+        <option data-weaknessid="@weakness.WEAKNESS_ID">@weakness.WEAKNESS_NAME</option>
+    }
+</select>
+
+<button class="form-control btn btn-lg btn-primary my-2" id="select-weakness-button">Ekle</button>
+
+<div class="form-control d-flex flex-row justify-content-start" style="padding:0;" id="selected-weakness">
+
+</div>
