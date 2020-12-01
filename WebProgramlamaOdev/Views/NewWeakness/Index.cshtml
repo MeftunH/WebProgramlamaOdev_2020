@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Pokemon Zayıflığı</h1>
+<div class="form-group">
+    <input id="pokemon-weakness-name-input" class="form-control" type="text" required placeholder="Pokemon Zayıflığı İsmini Giriniz" />
+    <button id="pokemon-weakness-submit" class="form-control btn btn-lg btn-primary my-3">Oluştur</button>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        newWeakness();
+    });
+
+    function newWeakness() {
+        $('#pokemon-weakness-submit').on('click', function () {
+            let weakness = {};
+            weakness.WEAKNESS_NAME = $('#pokemon-weakness-name-input').val();
+
+            $.ajax({
+            url: '@Url.Action("NewWeakness","NewWeakness")',
+            type: "POST",
+            data: { weakness: weakness},
+            success: function (data) {
+                if (data == "başarılı")
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Zayıflığı Başarıyla Oluşturuldu!",
+                        icon: "success",
+                        button: "Tamam",
+                    });
+                else
+                    alert("Onaylama Başarısız!");
+            }
+            });
+
+        })
+
+    }
+</script>
+

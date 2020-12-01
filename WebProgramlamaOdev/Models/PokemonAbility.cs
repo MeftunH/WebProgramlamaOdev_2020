@@ -13,7 +13,8 @@ namespace WebProgramlamaOdev.Models
         public int POKEMON_ABILITY_ID { get; set; }
         public int POKEMON_ID { get; set; }
         public Pokemon Pokemon { get; set; }
-        public Abilities Ability { get; set; }
         public int ABILITY_ID { get; set; }
+        public Abilities Ability { get; set; }
+       
     }
 }

@@ -16,64 +16,64 @@ namespace WebProgramlamaOdev.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PokemonAbility>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.PokemonAbility)
-                .HasForeignKey<PokemonAbility>(a => a.POKEMON_ID);
+                .HasOne(pa => pa.Pokemon)
+                .WithMany(p => p.PokemonAbility)
+                .HasForeignKey(pa => pa.POKEMON_ID);
 
             modelBuilder.Entity<PokemonAbility>()
-                .HasOne(a => a.Ability)
-                .WithOne(b => b.PokemonAbility)
-                .HasForeignKey<PokemonAbility>(a => a.ABILITY_ID);
+                .HasOne(pa => pa.Ability)
+                .WithMany(a => a.PokemonAbility)
+                .HasForeignKey(pa => pa.ABILITY_ID);
            
             modelBuilder.Entity<PokemonStat>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.PokemonStat)
-                .HasForeignKey<PokemonStat>(a => a.POKEMON_ID);
+                .HasOne(ps => ps.Pokemon)
+                .WithMany(p => p.PokemonStat)
+                .HasForeignKey(ps => ps.POKEMON_ID);
 
             modelBuilder.Entity<PokemonStat>()
-                .HasOne(a => a.Stat)
-                .WithOne(b => b.PokemonStat)
-                .HasForeignKey<PokemonStat>(a => a.STAT_ID);
+                .HasOne(ps => ps.Stat)
+                .WithMany(p => p.PokemonStat)
+                .HasForeignKey(ps => ps.STAT_ID);
             
             modelBuilder.Entity<PokemonType>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.PokemonType)
-                .HasForeignKey<PokemonType>(a => a.POKEMON_ID);
+                .HasOne(pt => pt.Pokemon)
+                .WithMany(p => p.PokemonType)
+                .HasForeignKey(pt => pt.POKEMON_ID);
 
             modelBuilder.Entity<PokemonType>()
-                .HasOne(a => a.Type)
-                .WithOne(b => b.PokemonType)
-                .HasForeignKey<PokemonType>(a => a.TYPE_ID);
+                .HasOne(pt => pt.Type)
+                .WithMany(p => p.PokemonType)
+                .HasForeignKey(pt => pt.TYPE_ID);
 
             modelBuilder.Entity<PokemonWeakness>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.PokemonWeakness)
-                .HasForeignKey<PokemonWeakness>(a => a.POKEMON_ID);
+                .HasOne(pw => pw.Pokemon)
+                .WithMany(p => p.PokemonWeakness)
+                .HasForeignKey(pw => pw.POKEMON_ID);
 
             modelBuilder.Entity<PokemonWeakness>()
-                .HasOne(a => a.Weakness)
-                .WithOne(b => b.PokemonWeakness)
-                .HasForeignKey<PokemonWeakness>(a => a.WEAKNESS_ID);
+                .HasOne(pw => pw.Weakness)
+                .WithMany(w => w.PokemonWeakness)
+                .HasForeignKey(pw => pw.WEAKNESS_ID);
             
             modelBuilder.Entity<UserPokemon>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.UserPokemon)
-                .HasForeignKey<UserPokemon>(a => a.POKEMON_ID);
+                .HasOne(up => up.Pokemon)
+                .WithMany(p => p.UserPokemon)
+                .HasForeignKey(up => up.POKEMON_ID);
 
             modelBuilder.Entity<UserPokemon>()
-                .HasOne(a => a.User)
-                .WithOne(b => b.UserPokemon)
-                .HasForeignKey<UserPokemon>(a => a.USER_ID);
+                .HasOne(up => up.User)
+                .WithMany(u => u.UserPokemon)
+                .HasForeignKey(up => up.USER_ID);
             
             modelBuilder.Entity<UserWishlist>()
-                .HasOne(a => a.Pokemon)
-                .WithOne(b => b.UserWishlist)
-                .HasForeignKey<UserWishlist>(a => a.POKEMON_ID);
+                .HasOne(uw => uw.Pokemon)
+                .WithMany(p => p.UserWishlist)
+                .HasForeignKey(uw => uw.POKEMON_ID);
 
             modelBuilder.Entity<UserWishlist>()
-                .HasOne(a => a.User)
-                .WithOne(b => b.UserWishlist)
-                .HasForeignKey<UserWishlist>(a => a.USER_ID);
+                .HasOne(uw => uw.User)
+                .WithMany(u => u.UserWishlist)
+                .HasForeignKey(uw => uw.USER_ID);
 
         }
         public DbSet<Pokemon> POKEMON { get; set; }

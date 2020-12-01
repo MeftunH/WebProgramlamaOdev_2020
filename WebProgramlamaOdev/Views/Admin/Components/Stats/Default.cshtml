@@ -1,0 +1,54 @@
+﻿@model List<WebProgramlamaOdev.Models.Stat>
+
+<div>
+    @foreach (var stat in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-start">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>ID:</div>
+                        <div>@stat.STAT_ID</div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between ml-2">
+                        <div>Özellik Adı:</div>
+                        <div>@stat.STAT_NAME</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div class="d-flex flex-row justify-content-between">
+                    <button class="btn btn-lg btn-danger stat-delete-button" data-statid="@stat.STAT_ID">Sil</button>
+                    <button type="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#editStatModal-@stat.STAT_ID">
+                        Düzenle
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Modal -->
+        <div class="modal fade" id="editStatModal-@stat.STAT_ID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pokemon Yeteneğini Düzenle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control stat-name-input" value="@stat.STAT_NAME" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="button" class="btn btn-primary stat-edit-submit" data-statid="@stat.STAT_ID">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

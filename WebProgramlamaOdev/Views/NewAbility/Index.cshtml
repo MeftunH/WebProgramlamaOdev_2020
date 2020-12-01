@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Pokemon Yeteneği Ekle</h1>
+
+<div class="form-group">
+    <input class="form-control" type="text" id="pokemon-ability-name-input" placeholder="Pokemon Yeteneği İsmini Yazınız..." required />
+    <input class="form-control" type="text" id="pokemon-ability-desc-input" placeholder="Yetenek Açıklamasını Yazınız..." required />
+    <button class="form-control btn-primary mt-2" id="new-pokemon-ability-submit">Oluştur</button>
+</div>
+
+<script>
+    $(document).ready(function () {
+        newAbility();
+    });
+
+    function newAbility() {
+        $('#new-pokemon-ability-submit').on('click', function () {
+            let ability = {};
+            ability.ABILITY_NAME = $('#pokemon-ability-name-input').val();
+            ability.ABILITY_DESC = $('#pokemon-ability-desc-input').val();
+
+            $.ajax({
+            url: '@Url.Action("NewAbility","NewAbility")',
+            type: "POST",
+            data: { ability: ability},
+            success: function (data) {
+                if (data == "başarılı")
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Yeteneği Başarıyla Oluşturuldu!",
+                        icon: "success",
+                        button: "Tamam",
+                    });
+                else
+                    alert("Onaylama Başarısız!");
+            }
+            });
+
+        })
+
+    }
+</script>
+
