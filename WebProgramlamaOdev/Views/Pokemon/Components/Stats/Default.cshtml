@@ -1,0 +1,20 @@
+﻿@model WebProgramlamaOdev.Models.ViewModels.Pokemon.Stats
+
+<div class="card text-white bg-info my-3">
+    <div class="card-header">Pokemon Özellikleri</div>
+    @foreach (var stat in Model.stats)
+    {
+        <div class="d-flex flex-row justify-content-between align-items-center">
+            <div>@stat.STAT_NAME</div>
+            @foreach (var pokemonStat in Model.pokemonStats)
+            {
+                @if (pokemonStat.STAT_ID == stat.STAT_ID)
+                {
+                    <div>@pokemonStat.STAT_VALUE</div>
+                }
+
+            }
+
+        </div>
+    }
+</div>

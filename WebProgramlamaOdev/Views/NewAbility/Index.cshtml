@@ -28,13 +28,17 @@
             type: "POST",
             data: { ability: ability},
             success: function (data) {
-                if (data == "başarılı")
+                if (data == "başarılı") {
                     swal({
                         title: "Başarılı !",
                         text: "Pokemon Yeteneği Başarıyla Oluşturuldu!",
                         icon: "success",
                         button: "Tamam",
+                    }).then(function () {
+                           window.location.href = '@Url.Action("Index","Admin")';
                     });
+
+                }
                 else
                     alert("Onaylama Başarısız!");
             }

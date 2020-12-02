@@ -26,13 +26,18 @@
             type: "POST",
             data: { stat: stat},
             success: function (data) {
-                if (data == "başarılı")
+                if (data == "başarılı") {
+
+
                     swal({
                         title: "Başarılı !",
                         text: "Pokemon Özelliği Başarıyla Oluşturuldu!",
                         icon: "success",
                         button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","NewStat")';
                     });
+                }
                 else
                     alert("Onaylama Başarısız!");
             }

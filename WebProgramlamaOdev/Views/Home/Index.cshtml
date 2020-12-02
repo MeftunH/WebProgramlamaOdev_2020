@@ -1,4 +1,4 @@
-﻿
+﻿@model List<WebProgramlamaOdev.Models.Pokemon>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,37 @@
 
 <h1>Index</h1>
 
+<div class="pokemons-container row d-flex">
+    @foreach (var pokemon in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <div class="card pokemon-card" data-pokemonid="@pokemon.POKEMON_ID" style="width: 18rem;">
+                <img class="card-img-top" src="@pokemon.POKEMON_IMG_URL" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">@pokemon.POKEMON_NAME</h4>
+                    <p class="card-text">@pokemon.POKEMON_PRICE $</p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        goToPokemonPage();
+    })
+
+    function goToPokemonPage() {
+        $('.pokemon-card').click(function () {
+            let pokemonid = $(this).attr('data-pokemonid');
+
+            window.location.href = '@Url.Action("Index","Pokemon")?id=' + pokemonid;
+
+          
+        });
+    }
+
+   
+</script>

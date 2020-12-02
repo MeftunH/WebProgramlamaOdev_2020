@@ -1,0 +1,13 @@
+﻿@model List<WebProgramlamaOdev.Models.Type>
+
+<div class="card text-white bg-success my-3">
+    <div class="card-header">Pokemon Tipleri</div>
+    <div class="card-body">
+        @foreach (var type in Model)
+        {
+            <div class="col-md-3 col-sm-6">
+                <button disabled class="btn btn-outline-dark">@type.TYPE_NAME</button>
+            </div>
+        }
+    </div>
+</div>

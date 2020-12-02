@@ -26,13 +26,16 @@
             type: "POST",
             data: { weakness: weakness},
             success: function (data) {
-                if (data == "başarılı")
+                if (data == "başarılı") {
                     swal({
                         title: "Başarılı !",
                         text: "Pokemon Zayıflığı Başarıyla Oluşturuldu!",
                         icon: "success",
                         button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","NewWeakness")';
                     });
+                }
                 else
                     alert("Onaylama Başarısız!");
             }
