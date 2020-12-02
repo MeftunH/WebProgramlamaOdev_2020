@@ -1,0 +1,16 @@
+﻿@model List<WebProgramlamaOdev.Models.Abilities>
+
+
+@if (Model.Count != 0)
+{
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        @foreach (var ability in Model)
+        {
+            <button class="btn btn-warning ability-button" data-abilityname="@ability.ABILITY_NAME" data-abilitydesc="@ability.ABILITY_DESC">@ability.ABILITY_NAME</button>
+        }
+    </div>
+}
+else
+{
+    <div>Pokemon Yeteneği Bulunamadı !</div>
+}
