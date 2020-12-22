@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebProgramlamaOdev.Models;
 
 namespace WebProgramlamaOdev.Controllers.Pokemon
 {
+    [Authorize]
     public class PokemonController : Controller
     {
         Context context = new Context();

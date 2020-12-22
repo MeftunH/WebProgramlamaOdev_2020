@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebProgramlamaOdev.Models;
 
@@ -10,11 +11,14 @@ namespace WebProgramlamaOdev.Controllers
     public class NewPokemonController : Controller
     {
         Context c = new Context();
+
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public JsonResult NewPokemon(Models.Pokemon pokemon,int[] typeIDs,int[] weaknessIDs,int[] abilityIDs,List<Models.PokemonStat> pokemonStats)
         {
