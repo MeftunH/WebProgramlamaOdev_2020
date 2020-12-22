@@ -1,0 +1,103 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokedex: Kayıt Ol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Blend  Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/css/Login/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Vollkorn+SC:400,600,700,900&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="~/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- //web font -->
+</head>
+<body>
+    <!-- main -->
+    <div class="main">
+        <div class="form-container">
+            <h1>ŞİMDİ KAYDOL</h1>
+            <div class="main-w3lsrow">
+                <!-- login form -->
+                <div class="login-form login-form-left">
+                    <div class="agile-row">
+                        <div class="login-agileits-top">
+                            <div class="form-group">
+                                <input id="email-input" class="form-control" type="text" required placeholder="E-Posta Adresinizi Giriniz..." />
+                                <input id="username-input" class="form-control" type="text" required placeholder="Kullanıcı Adınızı Giriniz..." />
+                                <input id="password-input" class="form-control" type="password" required placeholder="Şifrenizi Giriniz..." />
+                                <input id="datepicker" class="form-control" type="text" placeholder="Doğum Tarihinizi Giriniz..." required />
+                                <input id="register" type="submit" value="Kayıt Ol">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //main -->
+</body>
+</html>
+<script>
+
+    $(document).ready(function () {
+        Register();
+    });
+
+    $(function () {
+        debugger;
+        $("#datepicker").datepicker();
+    });
+
+    function Register() {
+        $('#register').on('click', function () {
+
+            let user = {};
+            user.USER_NAME = $('#username-input').val();
+            user.USER_MAIL = $('#email-input').val();
+            user.USER_PASSWORD = $('#password-input').val();
+            user.USER_BIRTHDATE = $('#datepicker').val();
+            debugger;
+        $.ajax({
+            url: '@Url.Action("NewUser","Login")',
+            type: "POST",
+            data: {user:user  },
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Hoş Geldin !",
+                        text: "Kullanıcın Başarıyla Oluşturuldu,Giriş Bilgilerinle Giriş Yapabilmen İçin Seni Giriş Sayfasına Yönlendiriyorum !",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Login", "Login")';
+                    });
+                }
+                else {
+                    swal({
+                        title: "Kullanıcı Oluşturulamadı !",
+                        text: "Hatalar: " + "\n" + data,
+                        icon: "error",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+        });
+        })
+    }
+</script>

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
 namespace WebProgramlamaOdev
 {
     public class Startup
@@ -24,11 +24,22 @@ namespace WebProgramlamaOdev
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x =>
+                {
+                    x.LoginPath = "/Login/Login";
+                });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(3600);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -41,8 +52,10 @@ namespace WebProgramlamaOdev
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
+            app.UseSession();
             app.UseRouting();
+
 
             app.UseAuthorization();
 
@@ -52,6 +65,8 @@ namespace WebProgramlamaOdev
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+          
         }
     }
 }

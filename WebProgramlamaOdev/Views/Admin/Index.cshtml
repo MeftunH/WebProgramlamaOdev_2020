@@ -2,7 +2,12 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var userRole = User.Identities.First().AuthenticationType;
 }
+
+@if (userRole == "Admin")
+{
+
 
 <h1>Admin Kontrol Sayfası</h1>
 
@@ -444,4 +449,8 @@
     }
 
 </script>
-
+}
+else
+{
+    <h1>Bu Sayfayı Görüntüleyemezsiniz !</h1>
+}
