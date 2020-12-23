@@ -47,6 +47,7 @@ h1 {
     letter-spacing: 7px;
 	font-family: 'Vollkorn SC', serif;
 }
+
 .login-form h2{
     font-size: 2.2em;
     color: #fff;
@@ -240,7 +241,34 @@ ul.top-links li a i.fa {
     background: transparent;
     color: #fff;   
 	 border:1px solid #fff;
-} 
+}
+.login-form input[type="button"] {
+    font-size: 1em;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.83);
+    border: 1px solid  rgba(0, 0, 0, 0.83);
+    outline: none;
+    cursor: pointer;
+    padding: .6em 1em;
+    -webkit-appearance: none;
+    width: 70%;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    margin-left: 30px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+#redirect:hover {
+    background: transparent;
+    color: #fff;
+    border:1px solid #fff;
+}
 .login-agileits-bottom {
     margin-top:1.6em;
     text-align: center; 

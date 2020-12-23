@@ -33,11 +33,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <h2>Giriş Yap !</h2>
                         <div class="login-agileits-top">
                             <form action="#" method="post">
-                                <p>Kullanıcı Adı </p>
-                                <input type="text" class="name" name="USER_MAIL" required="" />
+                                <p>Email </p>
+                                <input type="text" class="name" name="USER_MAIL"/>
+                                <span asp-validation-for="email"></span>
                                 <p>Şifre</p>
                                 <input type="password" class="password" name="USER_PASSWORD" required="" />
                                 <input type="submit" value="Giriş Yap">
+                                <p style="text-align: center">HESABIN YOK MU?</p>
+                          <input id="redirect" type="button" value="Simdi Kaydol" onclick="@("window.location.href='" + @Url.Action("Register", "Login") + "'");" />
+
                             </form>
                         </div>
                     </div>
