@@ -1,0 +1,18 @@
+﻿@model List<WebProje.Models.Type>
+
+<h1>Pokemon Tipleri</h1>
+
+<select class="form-control" id="type-select">
+    @foreach (var type in Model)
+    {
+        <option data-typeid="@type.TYPE_ID">@type.TYPE_NAME</option>
+    }
+</select>
+
+<button class="form-control btn btn-lg btn-primary my-2" id="select-type-button">Ekle</button>
+
+<div class="form-control d-flex flex-row justify-content-start" style="padding:0;" id="selected-types">
+
+</div>
+
+

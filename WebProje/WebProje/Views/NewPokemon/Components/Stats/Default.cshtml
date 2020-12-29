@@ -1,0 +1,10 @@
+﻿@model List<WebProje.Models.Stat>
+
+<h1>Özellikler</h1>
+<div id="stat-inputs-container">
+    @foreach (var stat in Model)
+    {
+        <label>@stat.STAT_NAME</label>
+        <input class="form-control stat-input" data-statid="@stat.STAT_ID" type="number" placeholder="@stat.STAT_NAME Değerini Giriniz..." />
+    }
+</div>
