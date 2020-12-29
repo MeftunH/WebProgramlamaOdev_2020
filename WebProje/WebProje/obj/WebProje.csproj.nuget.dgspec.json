@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maftu\\source\\repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj": {}
+    "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maftu\\source\\repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj": {
+    "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maftu\\source\\repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
+        "projectUniqueName": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
         "projectName": "WebProje",
-        "projectPath": "C:\\Users\\maftu\\source\\repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
+        "projectPath": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
         "packagesPath": "C:\\Users\\maftu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maftu\\source\\repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\obj\\",
+        "outputPath": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\maftu\\AppData\\Roaming\\NuGet\\NuGet.Config",
