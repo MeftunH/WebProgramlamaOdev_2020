@@ -1,7 +1,7 @@
 ﻿@model WebProje.Models.ViewModels.Pokemon.Stats
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 <div class="card text-white bg-info my-3">
-    <div class="card-header">Pokemon Özellikleri</div>
+    <div class="card-header">@localizer["Pokemon Özellikleri"]</div>
     @foreach (var stat in Model.stats)
     {
         <div class="d-flex flex-row justify-content-between align-items-center">

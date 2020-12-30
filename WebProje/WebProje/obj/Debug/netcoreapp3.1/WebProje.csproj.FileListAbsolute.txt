@@ -407,3 +407,13 @@ C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Shared._Layout.tr.resources
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Index.en.resources
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Index.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Ability.Default.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Stats.Default.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Ability.Default.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Stats.Default.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Areas.Identity.Pages.Account.Login.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Areas.Identity.Pages.Account.Login.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Type.Default.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Type.Default.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Weakness.Default.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Weakness.Default.tr.resources

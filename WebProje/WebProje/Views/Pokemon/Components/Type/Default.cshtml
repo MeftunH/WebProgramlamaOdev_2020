@@ -1,7 +1,7 @@
 ﻿@model List<WebProje.Models.Type>
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 <div class="card text-white bg-success my-3">
-    <div class="card-header">Pokemon Tipleri</div>
+    <div class="card-header">@localizer["Pokemon Tipleri"]</div>
     <div class="card-body">
         @foreach (var type in Model)
         {

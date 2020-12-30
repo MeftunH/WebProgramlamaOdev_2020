@@ -123,8 +123,23 @@
   <data name="Anasayfa" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Ağırlık" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="Kategori" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Satın Al" xml:space="preserve">
+    <value>Buy</value>
+  </data>
   <data name="Tipleri" xml:space="preserve">
     <value>Types</value>
+  </data>
+  <data name="Uzunluk" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="Yetenekler" xml:space="preserve">
+    <value>Abilities</value>
   </data>
   <data name="Zayıflıkları" xml:space="preserve">
     <value>Weaknesses</value>

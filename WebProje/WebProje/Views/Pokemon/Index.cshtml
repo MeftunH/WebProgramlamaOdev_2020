@@ -8,7 +8,7 @@
     <div class="jumbotron">
         <h1 class="display-4">@Html.DisplayFor(model => model.POKEMON_NAME)</h1>
         <hr class="my-4">
-        <button class="form-control btn btn-lg btn-primary">Satın Al</button>
+        <button class="form-control btn btn-lg btn-primary">@localizer["Satın Al"]</button>
 
 
 
@@ -17,21 +17,21 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
-                        <div>Uzunluk</div>
+                        <div>@localizer["Uzunluk"]</div>
                         <div>@Html.DisplayFor(model => model.POKEMON_HEIGHT) M</div>
                     </div>
                     <div class="col-md-3 col-sm-3">
-                        <div>Ağırlık</div>
+                        <div>@localizer["Ağırlık"]</div>
                         <div>@Html.DisplayFor(model => model.POKEMON_WEIGHT) KG</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
-                        <div>Kategori</div>
+                        <div>@localizer["Kategori"]</div>
                         <div>@Html.DisplayFor(model => model.POKEMON_CATEGORY)</div>
                     </div>
                     <div class="col-md-3 col-sm-3">
-                        <div>Yetenekler</div>
+                        <div>@localizer["Yetenekler"]</div>
                         @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Ability), new { id = Model.POKEMON_ID })                       
                     </div>
                 </div>

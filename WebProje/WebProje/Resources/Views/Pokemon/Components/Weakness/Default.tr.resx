@@ -117,22 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Abilities" xml:space="preserve">
-    <value>Özellikleri</value>
+  <data name="Pokemon Abilities" xml:space="preserve">
+    <value>Pokemon Özellikleri</value>
   </data>
-  <data name="Buy" xml:space="preserve">
-    <value>Satin Al</value>
+  <data name="Pokemon Home" xml:space="preserve">
+    <value>Pokemon Anasayfa</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Anasayfa</value>
+  <data name="Pokemon Index" xml:space="preserve">
+    <value>Pokemon Anadizin</value>
   </data>
-  <data name="Index" xml:space="preserve">
-    <value>Anadizin</value>
+  <data name="Pokemon Skill Not Found" xml:space="preserve">
+    <value>Pokemon Yeteneği Bulunamadı</value>
   </data>
-  <data name="Types" xml:space="preserve">
-    <value>Tipleri</value>
+  <data name="Pokemon Types" xml:space="preserve">
+    <value>Pokemon Tipleri</value>
   </data>
-  <data name="Weaknesses" xml:space="preserve">
-    <value>Zayıflıkları</value>
+  <data name="Pokemon Weaknesses" xml:space="preserve">
+    <value>Pokemon Zayıflıkları</value>
   </data>
 </root>

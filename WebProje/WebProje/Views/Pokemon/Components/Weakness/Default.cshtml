@@ -1,8 +1,8 @@
 ﻿@model List<WebProje.Models.Weakness>
 
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 <div class="card text-white bg-danger mb-3">
-    <div class="card-header">Pokemon Zayıflıkları</div>
+    <div class="card-header">@localizer["Pokemon Zayıflıkları"]</div>
     <div class="card-body">
         <div class="d-flex flex-row justify-content-start align-items-center">
             @foreach (var weakness in Model)
