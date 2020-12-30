@@ -1,12 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Builder
 @using Microsoft.Extensions.Options
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 @model List<WebProje.Models.Pokemon>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Index</h1>
+<h1>@localizer["Index"]</h1>
 
 <div class="pokemons-container row d-flex">
     @foreach (var pokemon in Model)
@@ -28,7 +29,7 @@
 
         goToPokemonPage();
     })
-   
+
     function goToPokemonPage() {
         $('.pokemon-card').click(function () {
             let pokemonid = $(this).attr('data-pokemonid');

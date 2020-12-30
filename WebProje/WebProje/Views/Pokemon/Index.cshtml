@@ -1,40 +1,44 @@
-﻿@model WebProje.Models.Pokemon 
+﻿@model WebProje.Models.Pokemon
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4">@Model.POKEMON_NAME</h1>
+        <h1 class="display-4">@Html.DisplayFor(model => model.POKEMON_NAME)</h1>
         <hr class="my-4">
         <button class="form-control btn btn-lg btn-primary">Satın Al</button>
-       
+
+
+
         <div class="card text-white bg-primary my-3">
-            <img class="img-fluid" style="background-color:#fff;" src="@Model.POKEMON_IMG_URL" />
+            <img class="img-fluid" style="background-color:#fff;" src="@Html.DisplayFor(model => model.POKEMON_IMG_URL)" />
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div>Uzunluk</div>
-                        <div>@Model.POKEMON_HEIGHT M</div>
+                        <div>@Html.DisplayFor(model => model.POKEMON_HEIGHT) M</div>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <div>Ağırlık</div>
-                        <div>@Model.POKEMON_WEIGHT KG</div>
+                        <div>@Html.DisplayFor(model => model.POKEMON_WEIGHT) KG</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div>Kategori</div>
-                        <div>@Model.POKEMON_CATEGORY</div>
+                        <div>@Html.DisplayFor(model => model.POKEMON_CATEGORY)</div>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <div>Yetenekler</div>
-                        @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Ability), new { id = Model.POKEMON_ID })
+                        @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Ability), new { id = Model.POKEMON_ID })                       
                     </div>
                 </div>
             </div>
         </div>
-        @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Type), new { id = Model.POKEMON_ID })
+         @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Type), new { id = Model.POKEMON_ID })
+        
         @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Stats), new { id = Model.POKEMON_ID })
         @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Pokemon.Weakness), new { id = Model.POKEMON_ID })
     </div>
@@ -52,7 +56,7 @@
             let desc = $(this).attr('data-abilitydesc');
 
 
-            swal(abilityName,desc);
+            swal(abilityName, desc);
 
         })
     }

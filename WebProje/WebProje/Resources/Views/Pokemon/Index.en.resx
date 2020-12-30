@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Anadizin" xml:space="preserve">
+    <value>Index</value>
+  </data>
   <data name="Anasayfa" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Tipleri" xml:space="preserve">
+    <value>Types</value>
+  </data>
+  <data name="Zayıflıkları" xml:space="preserve">
+    <value>Weaknesses</value>
+  </data>
+  <data name="Özellikleri" xml:space="preserve">
+    <value>Abilities</value>
   </data>
 </root>

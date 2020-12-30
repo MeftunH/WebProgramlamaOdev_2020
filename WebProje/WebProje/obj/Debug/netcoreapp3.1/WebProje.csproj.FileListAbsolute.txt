@@ -339,7 +339,6 @@ C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.csprojAssemblyReference.cache
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Home.Index.en.resources
-C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Views.Home.Index.en.resources
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.csproj.GenerateResource.cache
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.AssemblyInfoInputs.cache
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.AssemblyInfo.cs
@@ -401,3 +400,10 @@ C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.dll
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.pdb
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.genruntimeconfig.cache
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\tr\WebProje.resources.dll
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Home.Index.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\tr\WebProje.resources.dll
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Shared._Layout.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Shared._Layout.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Index.en.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Index.tr.resources

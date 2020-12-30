@@ -1,11 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Localization
 @using Microsoft.AspNetCore.Builder
 @using Microsoft.Extensions.Options
-@inject IOptions<RequestLocalizationOptions> LocOptions
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
-@{ var RequestCulture = Context.Features.Get<IRequestCultureFeature>();
-    var cultureItems = LocOptions.Value.SupportedUICultures
-        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName }).ToList(); }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +17,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebProje</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@localizer["WebProje"]</a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,11 +27,11 @@
 
 
                     <ul class="navbar-nav mr-auto">
-                        @if(User.Identity.IsAuthenticated)
-                        { 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Anasayfa"]</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Home"]</a>
+                            </li>
                         }
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -46,10 +44,7 @@
                         }
 
                     </ul>
-                    <form id="cultureForm" asp-action="Index">
-                        <label> Language </label>
-                        <select onchange="SetCulture(this.Value)" asp-for="@RequestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
-                    </form>
+                    <partial name="_Culture"  />
                     <partial name="/Views/Shared/_LoginPartial.cshtml" />
                 </div>
             </div>
@@ -70,10 +65,7 @@
         $(document).ready(function () {
             searchPokemon();
         })
-        function SetCulture(selectedValue) {
-            var culture = "/?culture=" + selectedValue + "&ui-culture=" + selectedValue;
-          
-        }
+      
         function searchPokemon() {
             $('.search-pokemon-button').on('click', function () {
                 let searchString = "";

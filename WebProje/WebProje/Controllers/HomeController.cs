@@ -53,7 +53,7 @@ namespace WebProje.Controllers
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
                 );
-            return RedirectToAction("Cookie");
+            return RedirectToAction(nameof(Index));
         }
         public IActionResult Privacy()
         {
