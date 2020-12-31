@@ -75,6 +75,7 @@ namespace WebProje.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
             
             [Required]
+            [Display(Name = "Dogum Tarihi")]
             [DataType(DataType.Date)]
             public string USER_BIRTHDAY { get; set; }
            

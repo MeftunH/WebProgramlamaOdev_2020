@@ -36,7 +36,8 @@
     <link rel="stylesheet" type="text/css" href="~/Login_v4/css/main.css">
     <!--===============================================================================================-->
 </head>
-<body style="background-image: url('https://wallpaperaccess.com/full/109332.jpg');">
+<body style="height: 100%; font-family: Poppins-Regular, sans-serif; background: url('https://wallpaperaccess.com/full/109332.jpg')repeat 0px 0px; background-attachment: fixed; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover;">
+
 
     <div class="limiter">
 
@@ -88,7 +89,7 @@
                             <div class="wrap-login100-form-btn">
                                 <div class="login100-form-bgbtn"></div>
                                 <button class="login100-form-btn">
-                                    Login
+                                    @localizer["Login"]
                                 </button>
                             </div>
                         </div>
@@ -114,30 +115,29 @@
         </div>
     </div>
 </body>
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-    }
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 
 
 
-    <div id="dropDownSelect1"></div>
 
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/bootstrap/js/popper.js"></script>
-    <script src="~/Login_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/daterangepicker/moment.min.js"></script>
-    <script src="~/Login_v4/vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="~/Login_v4/js/main.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/bootstrap/js/popper.js"></script>
+<script src="~/Login_v4/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/daterangepicker/moment.min.js"></script>
+<script src="~/Login_v4/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="~/Login_v4/js/main.js"></script>
 
 
 </html>

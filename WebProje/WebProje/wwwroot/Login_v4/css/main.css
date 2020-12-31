@@ -40,6 +40,11 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
+	background: url('https://wallpaperaccess.com/full/109332.jpg')repeat 0px 0px;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
 }
 
 /*---------------------------------------------*/
