@@ -60,10 +60,10 @@ namespace WebProje
                 {
                     var supportedCulteres = new List<CultureInfo>
                     {
-                        new CultureInfo("tr"),
-                        new CultureInfo("en")
+                        new CultureInfo("tr-TR"),
+                        new CultureInfo("en-US")
                     };
-                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("tr");
+                    opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("tr-TR");
                     opt.SupportedCultures = supportedCulteres;
                     opt.SupportedUICultures = supportedCulteres;
                 });
