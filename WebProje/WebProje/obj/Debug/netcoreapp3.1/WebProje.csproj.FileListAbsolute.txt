@@ -359,8 +359,6 @@ C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Pages\Account\_AuthLayout.cshtml.g.cs
-C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Pages\Login.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Pages\Register.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Components\Abilities\Default.cshtml.g.cs
@@ -417,3 +415,5 @@ C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Type.Default.tr.resources
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Weakness.Default.en.resources
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Pokemon.Components.Weakness.Default.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Account\Login.cshtml.g.cs
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Identity\Account\_AuthLayout.cshtml.g.cs
