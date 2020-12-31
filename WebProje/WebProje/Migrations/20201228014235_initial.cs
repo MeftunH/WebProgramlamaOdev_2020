@@ -86,6 +86,7 @@ namespace WebProje.Migrations
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
                 nullable: true);
+           
         }
     }
 }

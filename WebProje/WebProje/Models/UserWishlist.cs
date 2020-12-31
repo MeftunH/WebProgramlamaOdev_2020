@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace WebProje.Models
 {
+    //private class WishList
+    //{
+    //private List<UserWishlist> pokemons=new List<UserWishlist>();
+    //    public List<UserWishlist> Pokemons => pokemons;
+    //}
+
     public class UserWishlist
     {
         [Key]
