@@ -46,14 +46,14 @@ namespace WebProje.Controllers
 
         }
         [HttpPost]
-        public IActionResult Cookie(string culture)
+        public IActionResult Cookie(string culture, string returnUrl)
         {
             Response.Cookies.Append(
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
                 );
-            return RedirectToAction(nameof(Index));
+            return LocalRedirect(returnUrl);
         }
         public IActionResult Privacy()
         {
