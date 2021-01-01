@@ -120,6 +120,9 @@
   <data name="Abilities" xml:space="preserve">
     <value>Özellikleri</value>
   </data>
+  <data name="Add To Wishlist" xml:space="preserve">
+    <value>İstek Listesine Ekle</value>
+  </data>
   <data name="Buy" xml:space="preserve">
     <value>Satin Al</value>
   </data>

@@ -8,7 +8,8 @@
     <div class="jumbotron">
         <h1 class="display-4">@Html.DisplayFor(model => model.POKEMON_NAME)</h1>
         <hr class="my-4">
-        <button class="form-control btn btn-lg btn-primary">@localizer["Satın Al"]</button>
+        <button id="buy-pokemon" class="mb-3 form-control btn btn-lg btn-success ">@localizer["Satın Al"]</button>
+        <button id="add-to-whislist" class="form-control btn btn-lg btn-primary">@localizer["İstek Listesine Ekle"]</button>
 
 
 
@@ -48,6 +49,8 @@
 <script>
     $(document).ready(function () {
         showAbilityDesc();
+        buyPokemon();
+        addToWishlist();
     });
 
     function showAbilityDesc() {
@@ -58,6 +61,70 @@
 
             swal(abilityName, desc);
 
+        })
+    }
+
+    function buyPokemon() {
+
+        $('#buy-pokemon').on('click', function () {
+
+            let pokemonid = @Model.POKEMON_ID;
+
+            $.ajax({
+            url: '@Url.Action("BuyPokemon","Pokemon")',
+            type: "POST",
+            data: { pokemonid: pokemonid},
+            success: function (data) {
+                if (data == "success") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Başarıyla Satın Alındı !",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Pokemon",new { id = Model.POKEMON_ID })';
+                    });
+                }
+                else
+                    swal({
+                        title: "Pokemon Satın Alınamadı !",
+                        text: data,
+                        icon: "error",
+                        button: "Tamam",
+                    });
+            }
+            });
+        })
+    }
+
+    function addToWishlist() {
+        $('#add-to-whislist').on('click', function () {
+            let pokemonid = @Model.POKEMON_ID;
+
+            $.ajax({
+            url: '@Url.Action("AddToWishList", "Pokemon")',
+            type: "POST",
+            data: { pokemonid: pokemonid},
+            success: function (data) {
+                if (data == "success") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Özelliği Başarıyla İstek Listesine Eklendi !",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Pokemon",new { id = Model.POKEMON_ID })';
+                    });
+                }
+                else
+                    swal({
+                        title: "Pokemon İstek Listesine Eklenemedi !",
+                        text: data,
+                        icon: "error",
+                        button: "Tamam",
+                    });
+            }
+            });
         })
     }
 </script>
