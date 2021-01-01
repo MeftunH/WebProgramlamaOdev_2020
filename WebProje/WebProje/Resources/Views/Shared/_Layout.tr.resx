@@ -126,6 +126,12 @@
   <data name="Index" xml:space="preserve">
     <value>Anadizin</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Search Pokemon" xml:space="preserve">
+    <value>Pokemon Ara</value>
+  </data>
   <data name="tr-TR" xml:space="preserve">
     <value>Turkce</value>
   </data>
