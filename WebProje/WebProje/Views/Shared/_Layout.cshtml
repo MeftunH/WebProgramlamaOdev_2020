@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Builder
 @using Microsoft.Extensions.Options
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
-
+@RenderSection("head", required: false)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,21 +10,36 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/Layout/Layout.css" rel="stylesheet" />
     <link href="~/css/NewPokemon/NewPokemon.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/jquery/jquery.js"></script>
     <title>Layout</title>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@localizer["WebProje"]</a>
+                <div>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_1280.png" class="img-fluid icon" />
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Pokedex"]</a>
+                </div>
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+
                 <div class="collapse navbar-collapse" id="navbarColor03">
+                    @if (User.Identity.IsAuthenticated)
+                    {
 
-
+                        <nav class="navbar navbar-light">
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
+                            </form>
+                        </nav>
+                    }
                     <ul class="navbar-nav mr-auto">
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -33,23 +48,12 @@
                                 <span class="sr-only">(current)</span>
                             </li>
                         }
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            if (User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item active">
-                                    <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                                    <span class="sr-only">(current)</span>
-                                </li>
-                            }
-                        }
-
                     </ul>
 
                     <partial name="/Views/Shared/_LoginPartial.cshtml" />
 
                 </div>
-                <partial name="_Culture" />
+
             </div>
         </nav>
     </header>
@@ -63,7 +67,7 @@
         $(document).ready(function () {
             searchPokemon();
         })
-      
+
         function searchPokemon() {
             $('.search-pokemon-button').on('click', function () {
                 let searchString = "";
@@ -74,7 +78,6 @@
         }
     </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     @RenderSection("Scripts", required: false)
