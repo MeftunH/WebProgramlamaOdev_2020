@@ -138,6 +138,9 @@
   <data name="Password" xml:space="preserve">
     <value>Sifre</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kaydol</value>
+  </data>
   <data name="Register as a new user" xml:space="preserve">
     <value>Kaydol</value>
   </data>

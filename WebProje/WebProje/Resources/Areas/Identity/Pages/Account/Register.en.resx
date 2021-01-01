@@ -147,6 +147,9 @@
   <data name="Sifre" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="Soyisim" xml:space="preserve">
+    <value>Surname</value>
+  </data>
   <data name="Soyisim Giriniz" xml:space="preserve">
     <value>Surname</value>
   </data>

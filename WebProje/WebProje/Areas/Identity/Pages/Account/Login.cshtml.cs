@@ -29,7 +29,7 @@ namespace WebProje.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
         }
-
+      
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -45,6 +45,7 @@ namespace WebProje.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+
 
             [Required]
             [DataType(DataType.Password)]

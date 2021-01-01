@@ -120,10 +120,16 @@
   <data name="$" xml:space="preserve">
     <value>TL</value>
   </data>
+  <data name="en-US" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Anasayfa</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Anadizin</value>
+  </data>
+  <data name="tr-TR" xml:space="preserve">
+    <value>Turkish</value>
   </data>
 </root>
