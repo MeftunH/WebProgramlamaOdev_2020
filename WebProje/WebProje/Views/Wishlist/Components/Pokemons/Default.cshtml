@@ -1,0 +1,22 @@
+﻿@model List<WebProje.Models.Pokemon>
+
+<div>
+    @foreach (var pokemon in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <div class="card mb-3">
+                <div class="card pokemon-card" data-pokemonid="@pokemon.POKEMON_ID">
+                    <h3 style="color:#fff;" class="card-header">@pokemon.POKEMON_NAME</h3>
+
+                    <img src="@pokemon.POKEMON_IMG_URL" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                    <rect width="100%" height="100%" fill="#42f572"></rect>
+                    <text x="50%" y="50%" fill="#fff" dy=".3em"></text>
+
+                    <div class="card-footer text-muted">
+                        <p style="color:#fff;">@pokemon.POKEMON_PRICE $</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
