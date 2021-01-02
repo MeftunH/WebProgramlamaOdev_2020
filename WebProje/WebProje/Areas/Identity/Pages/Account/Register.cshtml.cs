@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -20,21 +23,24 @@ namespace WebProje.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IWebHostEnvironment webHostEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [BindProperty]
@@ -43,6 +49,7 @@ namespace WebProje.Areas.Identity.Pages.Account
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public string ProfileImage { get; set; }
 
         public class InputModel
         {
@@ -64,7 +71,7 @@ namespace WebProje.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             [DataType(DataType.Password)]
             [Display(Name = "Sifre giriniz")]
             public string Password { get; set; }
@@ -78,7 +85,12 @@ namespace WebProje.Areas.Identity.Pages.Account
             [Display(Name = "Dogum Tarihi")]
             [DataType(DataType.Date)]
             public string USER_BIRTHDAY { get; set; }
-           
+
+
+            [Required]
+            [Display(Name = "Profile Image")]
+            public IFormFile ProfileImage { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,13 +99,45 @@ namespace WebProje.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        private string UploadFile(IFormFile img, string path)
+        {
+            string fileName = null;
+            if (img != null)
+            {
+                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, path);
+                fileName = Guid.NewGuid().ToString() + "-" + img.FileName;
+                string filePath = Path.Combine(uploadDir, fileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    img.CopyTo(fileStream);
+                }
+            }
+            return fileName;
+        }
+
+        private void DeleteFile(string path, string file)
+        {
+            string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, path);
+            string fileURL = Path.Combine(uploadDir, file);
+
+            if (System.IO.File.Exists(fileURL))
+            {
+                System.IO.File.Delete(fileURL);
+            }
+        }
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            string profileImage = UploadFile(Input.ProfileImage, "images/user");
+
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname };
+                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname, Imgurl = profileImage };
+
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -128,6 +172,11 @@ namespace WebProje.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        private string DeleteFile(IFormFile profileImage, string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

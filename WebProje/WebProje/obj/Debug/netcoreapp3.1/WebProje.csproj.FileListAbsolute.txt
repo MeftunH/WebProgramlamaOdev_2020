@@ -420,3 +420,6 @@ C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Shared._Culture.en.resources
 C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.Resources.Views.Shared._Culture.tr.resources
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
+C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs

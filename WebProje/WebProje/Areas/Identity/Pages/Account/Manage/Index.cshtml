@@ -1,4 +1,5 @@
 ﻿@page
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 @model IndexModel
 @{
     ViewData["Title"] = "Profile";
@@ -9,11 +10,29 @@
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">
     <div class="col-md-6">
-        <form id="profile-form" method="post">
+        <form id="profile-form" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <hr />
+            <div class="form-group">
+                <label asp-for="profileImage">Profile Image</label>
+                <br />
+                <img src="@("~/images/user/"  + @ViewData["user"])" alt="Avatar" class="circular--square" style="height:90px; width:90px; border-radius:20px" asp-append-version="true" />
+                @*<img src="@("~/images/user/" + @Model.Imgurl)" asp-append-version="true" />*@
+            </div>
+            <div class="form-group">
+                @localizer["Update Image"]
+                <input asp-for="Input.ProfileImage" class="form-control" accept="image/*" multiple />
+                <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Username"></label>
                 <input asp-for="Username" class="form-control" disabled />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.USER_ABOUT"></label>
+                <input asp-for="Input.USER_ABOUT" class="form-control" />
+                <span asp-validation-for="Input.USER_ABOUT" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Input.PhoneNumber"></label>

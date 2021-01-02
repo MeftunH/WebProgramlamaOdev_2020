@@ -41,7 +41,7 @@
 
     <div class="container-login100">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
 
                 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -72,14 +72,19 @@
                     <span asp-validation-for="Input.Surname" class="text-danger"></span>
 
                 </div>
-                <div class="wrap-input100 validate-input m-b-23" data-validate="">
+                <div class="form-group">
+                    @localizer["Image"]
+                    <input asp-for="Input.ProfileImage" class="form-control" accept="image/*" multiple />
+                    <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
+                </div>
+                @*<div class="wrap-input100 validate-input m-b-23" data-validate="">
                     <span class="label-input100">
                         @localizer["Surname"]
                     </span>
                     <input asp-for="Input.Surname" class="input100" type="text" />
                     <span asp-validation-for="Input.Surname" class="text-danger"></span>
 
-                </div>
+                </div>*@
                 @*data-symbol="&#x2709" mail*@
                 <div class="wrap-input100 validate-input m-b-23" data-validate="">
                     <span class="label-input100">

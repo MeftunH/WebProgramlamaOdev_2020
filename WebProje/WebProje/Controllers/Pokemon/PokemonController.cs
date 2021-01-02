@@ -17,7 +17,13 @@ namespace WebProje.Controllers.Pokemon
             var pokemon = context.POKEMON.Find(id);
             return View(pokemon);
         }
-
+        public IActionResult WishListedPokemons(int id)
+        {
+            Models.Pokemon pokemon = context.POKEMON.Find(id);
+            var user = context.USER.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
+            var userPokemons = context.USER_POKEMON.Where(up => up.Id == user.Id && up.POKEMON_ID == pokemon.POKEMON_ID).ToList();
+            return View(userPokemons);
+        }
         public JsonResult BuyPokemon(int pokemonid)
         {
             Models.Pokemon pokemon = context.POKEMON.Find(pokemonid);
@@ -100,6 +106,7 @@ namespace WebProje.Controllers.Pokemon
 
                 return Json(e.Message);
             }
+            
         }
     }
 }
