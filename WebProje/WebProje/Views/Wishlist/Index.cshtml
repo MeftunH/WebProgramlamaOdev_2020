@@ -1,0 +1,28 @@
+﻿@model WebProje.Models.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İstek Listesi</h1>
+
+@await Component.InvokeAsync(typeof(WebProje.ViewComponents.Wishlist.Pokemons), new { userid = Model.Id }) 
+<script>
+    $(document).ready(function () {
+
+        goToPokemonPage();
+    })
+
+    function goToPokemonPage() {
+        $('.pokemon-card').click(function () {
+            let pokemonid = $(this).attr('data-pokemonid');
+
+            window.location.href = '@Url.Action("Index","Pokemon")?id=' + pokemonid;
+
+
+        });
+    }
+
+
+</script>
+

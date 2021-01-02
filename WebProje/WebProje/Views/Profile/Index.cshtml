@@ -5,10 +5,9 @@
 }
 
 <h1>Profile</h1>
+<a href=".@Url.Action("Index","Wishlist")">İstek Listesi</a>
 <div>
     <img src="@("~/images/user/"  + Model.Imgurl)" alt="Avatar" class="circular" style="height:200px; width:200px; border-radius:200px" asp-append-version="true" />
     <h2>@Model.UserName</h2>
 </div>
-
 @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Profile.Pokemons),new { userid =Model.Id})
-
