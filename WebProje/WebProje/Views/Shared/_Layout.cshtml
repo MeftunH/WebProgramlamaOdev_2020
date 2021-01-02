@@ -33,22 +33,18 @@
                     @if (User.Identity.IsAuthenticated)
                     {
 
-                    <nav class="navbar navbar-light">
-                        <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
-                            <input class="form-control mr-sm-2" id="searchString" name="searchString" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
-                        </form>
-                    </nav>
+                        <nav class="navbar navbar-light">
+                            <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
+                                <input class="form-control mr-sm-2" id="searchString" name="searchString" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
+                            </form>
+                        </nav>
                     }
                     <ul class="navbar-nav mr-auto">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item active">
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Home"]</a>
-                                <span class="sr-only">(current)</span>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" asp-area="" asp-controller="PokemonController" asp-action="WishListedPokemons">@localizer["Wishlist"]</a>
                                 <span class="sr-only">(current)</span>
                             </li>
                         }
@@ -65,6 +61,11 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+    </div>
+    <div style="background-color: #073642;" class="footer">
+        <div class="container text-center">
+            Sakarya Üniversiteri Web Programlama Ödevi
+        </div>
     </div>
 
     <script>
@@ -84,6 +85,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     @RenderSection("Scripts", required: false)
-
 </body>
 </html>

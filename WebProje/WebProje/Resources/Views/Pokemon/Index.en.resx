@@ -147,4 +147,7 @@
   <data name="Özellikleri" xml:space="preserve">
     <value>Abilities</value>
   </data>
+  <data name="İstek Listesine Ekle" xml:space="preserve">
+    <value>Add To Wishlist</value>
+  </data>
 </root>

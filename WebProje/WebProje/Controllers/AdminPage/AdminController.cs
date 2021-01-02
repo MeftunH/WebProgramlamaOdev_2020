@@ -206,6 +206,55 @@ namespace WebProje.Controllers.AdminPage
                 return Json(errorMessage);
             }
         }
+        [HttpPost]
+        public JsonResult EditPokemon(Models.Pokemon pokemon)
+        {
+            string errorMessage = "";
+
+            try
+            {
+                context.POKEMON.Update(pokemon);
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+
+                errorMessage = e.Message;
+            }
+
+            if (errorMessage == "")
+            {
+                return Json("başarılı");
+            }
+            else
+            {
+                return Json(errorMessage);
+            }
+        }
+        [HttpPost]
+        public JsonResult DeletePokemon(Models.Pokemon pokemon)
+        {
+            string errorMessage = "";
+            try
+            {
+                context.POKEMON.Remove(pokemon);
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+
+                errorMessage = e.Message;
+            }
+
+            if (errorMessage == "")
+            {
+                return Json("başarılı");
+            }
+            else
+            {
+                return Json(errorMessage);
+            }
+        }
     }
   }
 
