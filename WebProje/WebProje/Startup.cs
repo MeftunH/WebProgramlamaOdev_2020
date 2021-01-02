@@ -49,8 +49,12 @@ namespace WebProje
                   .AddDataAnnotationsLocalization();
             services.Configure<IdentityOptions>(option =>
             {
-                option.Password.RequiredLength = 5;
-            
+                option.Password.RequiredLength = 3;
+                option.Password.RequireDigit = false;
+                option.Password.RequireLowercase = false;
+                option.Password.RequireUppercase = false;
+                option.Password.RequireNonAlphanumeric = false;
+
             }
          );
                 
