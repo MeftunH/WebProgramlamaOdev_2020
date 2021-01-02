@@ -649,3 +649,5 @@ C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebPro
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.pdb
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\WebProje.genruntimeconfig.cache
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+C:\Users\maftu\source\repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
