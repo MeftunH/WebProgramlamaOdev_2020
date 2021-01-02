@@ -425,10 +425,10 @@ C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\
 C:\Users\maftu\Source\Repos\WebProgramlamaOdev_2020\WebProje\WebProje\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_Layout.cshtml.g.cs
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
-C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\WebProje.StaticWebAssets.xml
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\WebProje.exe
 C:\Users\Eren Değirmenci\Source\Repos\erendgrmnc\WebProgramlamaOdev_2020\WebProje\WebProje\bin\Debug\netcoreapp3.1\WebProje.deps.json
