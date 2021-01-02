@@ -1,0 +1,69 @@
+﻿@model List<WebProje.Models.Pokemon>
+
+<div>
+    @foreach (var pokemon in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-start">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>ID:</div>
+                        <div>@pokemon.POKEMON_ID</div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between ml-2">
+                        <div>Pokemon Adı:</div>
+                        <div>@pokemon.POKEMON_NAME</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex flex-row justify-content-between">
+                <button class="btn btn-lg btn-danger pokemon-delete-button" data-pokemonid="@pokemon.POKEMON_ID">Sil</button>
+                <button type="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#editModal-@pokemon.POKEMON_NAME">
+                    Düzenle
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editModal-@pokemon.POKEMON_NAME" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pokemon Yeteneğini Düzenle</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div>Pokemon İsmi</div>
+                            <input type="text" class="form-control pokemon-name-input" value="@pokemon.POKEMON_NAME" required />
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="form-container">
+                                    <div>Pokemon Kilosu</div>
+                                    <input type="text" class="form-control mt-2 pokemon-weight-input" value="@pokemon.POKEMON_WEIGHT" required />
+                                </div>
+                                <div class="form-container">
+                                    <div>Pokemon Boyu</div>
+                                    <input type="text" class="form-control mt-2 pokemon-height-input" value="@pokemon.POKEMON_HEIGHT" required />
+                                </div>
+                            </div>
+                            <div>Pokemon Resim URL'si</div>
+                            <input type="text" class="form-control mt-2 pokemon-imgurl-input" value="@pokemon.POKEMON_IMG_URL" required />
+                            <div>Pokemon Kategorisi</div>
+                            <input type="text" class="form-control mt-2 pokemon-category-input" value="@pokemon.POKEMON_CATEGORY" required />
+                            <div>POKEMON FİYATI</div>
+                            <input type="text" class="form-control mt-2 pokemon-price-input" value="@pokemon.POKEMON_PRICE" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="button" class="btn btn-primary pokemon-edit-submit" data-pokemonName="@pokemon.POKEMON_NAME" data-pokemonid="@pokemon.POKEMON_ID">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

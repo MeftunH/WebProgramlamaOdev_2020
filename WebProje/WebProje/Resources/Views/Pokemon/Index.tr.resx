@@ -132,6 +132,9 @@
   <data name="Index" xml:space="preserve">
     <value>Anadizin</value>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
   <data name="Types" xml:space="preserve">
     <value>Tipleri</value>
   </data>

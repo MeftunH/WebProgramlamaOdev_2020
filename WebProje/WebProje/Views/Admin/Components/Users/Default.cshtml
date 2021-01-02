@@ -1,0 +1,22 @@
+﻿@model List<WebProje.Models.User>
+
+<div>
+    @foreach (var user in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row justify-content-start">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>Kullanıcı Adı: </div>
+                        <div>@user.Name @user.Surname</div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between ml-2">
+                        <div>Email: </div>
+                        <div>@user.Email</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

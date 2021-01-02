@@ -4,72 +4,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h1>Admin Kontrol Sayfası</h1>
+<h1>Admin Kontrol Sayfası</h1>
 
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Pokemon Zayıflıkları
-                    </button>
-                </h2>
-            </div>
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Weakness))
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Pokemon Yetenekleri
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Abilities))
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Pokemon Özellikleri
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Stats))
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                        Pokemon Tipleri
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Type))
-            </div>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Pokemon Zayıflıkları
+                </button>
+            </h2>
         </div>
 
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Weakness))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Pokemon Yetenekleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Abilities))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Pokemon Özellikleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Stats))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Pokemon Tipleri
+                </button>
+            </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Type))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Pokemonlar
+                </button>
+            </h2>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Pokemons))
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingSix">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Kullanıcılar
+                </button>
+            </h2>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Admin.Users))
+        </div>
     </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center my-5" style="width:100%;background-color:#eee;padding:10px;border:1px solid #ccc;">
-        <a class="btn btn-lg btn-primary" href="@Url.Action("Index","NewType")">Pokemon Tipi Ekle</a>
-        <a class="btn btn-lg btn-dark" href="@Url.Action("Index","NewAbility")">Pokemon Yeteneği Ekle</a>
-        <a class="btn btn-lg btn-warning" href="@Url.Action("Index","NewStat")">Pokemon Özelliği Ekle</a>
-        <a class="btn btn-lg btn-danger" href="@Url.Action("Index","NewWeakness")">Pokemon Zayıflığı Ekle</a>
-    </div>
+</div>
 
-    <a class="form-control btn btn-lg btn-primary" href="@Url.Action("Index","NewPokemon")">Yeni Pokemon Oluştur</a>
+<div class="d-flex flex-row justify-content-between align-items-center my-5" style="width:100%;background-color:#eee;padding:10px;border:1px solid #ccc;">
+    <a class="btn btn-lg btn-primary" href="@Url.Action("Index","NewType")">Pokemon Tipi Ekle</a>
+    <a class="btn btn-lg btn-dark" href="@Url.Action("Index","NewAbility")">Pokemon Yeteneği Ekle</a>
+    <a class="btn btn-lg btn-warning" href="@Url.Action("Index","NewStat")">Pokemon Özelliği Ekle</a>
+    <a class="btn btn-lg btn-danger" href="@Url.Action("Index","NewWeakness")">Pokemon Zayıflığı Ekle</a>
+</div>
+
+<a class="form-control btn btn-lg btn-primary" href="@Url.Action("Index","NewPokemon")">Yeni Pokemon Oluştur</a>
 
 
-    <script>
+<script>
     $(document).ready(function () {
         editAbility();
         deleteAbility();
@@ -79,6 +103,8 @@
         editType();
         editWeakness();
         deleteWeakness();
+        editPokemon();
+        deletePokemon();
     });
 
     function editAbility() {
@@ -441,8 +467,99 @@
 
         })
 
+        }
+
+    function editPokemon() {
+        $('.pokemon-edit-submit').on('click', function () {
+            let pokemon = {};
+            pokemon.POKEMON_ID = $(this).attr('data-pokemonid');
+            pokemon.POKEMON_NAME = $(this).attr('data-pokemonName');
+            pokemon.POKEMON_WEIGHT = $('#editModal-' + pokemon.POKEMON_NAME +' .pokemon-weight-input').val();
+            pokemon.POKEMON_HEIGHT = $('#editModal-' + pokemon.POKEMON_NAME +' .pokemon-height-input').val();
+            pokemon.POKEMON_CATEGORY = $('#editModal-' + pokemon.POKEMON_NAME +' .pokemon-category-input').val();
+            pokemon.POKEMON_IMG_URL = $('#editModal-' + pokemon.POKEMON_NAME +' .pokemon-imgurl-input').val();
+            pokemon.POKEMON_PRICE = $('#editModal-' + pokemon.POKEMON_NAME +' .pokemon-price-input').val();
+
+            $.ajax({
+            url: '@Url.Action("EditPokemon","Admin")',
+            type: "POST",
+            data: { pokemon: pokemon},
+            success: function (data) {
+                if (data == "başarılı") {
+                    swal({
+                        title: "Başarılı !",
+                        text: "Pokemon Başarıyla Güncellendi !",
+                        icon: "success",
+                        button: "Tamam",
+                    }).then(function () {
+                        window.location.href = '@Url.Action("Index","Admin")';
+                    });
+
+                }
+                else {
+                    swal({
+                        title: "Başarısız !",
+                        text: "Pokemon Güncellenemedi ! Hata: " + data,
+                        icon: "error",
+                        button: "Tamam",
+                    });
+                }
+
+            }
+            });
+
+        })
     }
 
-    </script>
+    function deletePokemon() {
+         $('.pokemon-delete-button').on('click', function () {
+
+            swal({
+                title: "Bu Pokemonu Silmek İstediğinizden Emin Misiniz?",
+                text: "Bu Pokemon Silindikten Sonra Bir Daha Geri Alınamaz",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                         let pokemon = {};
+                         pokemon.POKEMON_ID = $(this).attr('data-pokemonid');
+
+                         $.ajax({
+                         url: '@Url.Action("DeletePokemon","Admin")',
+                         type: "POST",
+                         data: { pokemon: pokemon},
+                         success: function (data) {
+                             if (data == "başarılı") {
+                                 swal({
+                                     title: "Başarılı !",
+                                     text: "Pokemon Başarıyla Silindi!",
+                                     icon: "success",
+                                     button: "Tamam",
+                                 }).then(function () {
+                                     window.location.href = '@Url.Action("Index","Admin")';
+                                 });
+
+                             }
+                             else {
+                                 swal({
+                                     title: "Başarısız !",
+                                     text: "Pokemon Silinemedi! Hata: " + data,
+                                     icon: "fail",
+                                     button: "Tamam",
+                                 });
+                             }
+                         }
+                         });
+                    }
+                    else {
+                        swal("Pokemon Zayıflığı Silme İşlemi İptal Edildi !");
+                    }
+            });
+
+        })
+    }
+
+</script>
 
 
