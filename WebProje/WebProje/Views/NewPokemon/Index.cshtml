@@ -3,8 +3,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h1>Yeni Pokemon Oluştur</h1>
+<div class="remove-div"></div>
 <div class="form-group pokemon-input-container">
     <input id="pokemon-name-input" class="form-control input" type="text" required placeholder="Pokemon İsmini Giriniz..." />
     <div class="row-container">
@@ -20,19 +20,19 @@
     @await Component.InvokeAsync(typeof(WebProje.ViewComponents.NewPokemon.Weakness))
     <button id="btn-new-pokemon" class="form-control btn btn-lg btn-primary my-2">Oluştur</button>
 </div>
+<div class="remove-div"></div>
 
 <script>
     $(document).ready(function () {
         newPokemon();
         selectType();
-        removeSelectedType();
         selectAbility();
         selectWeakness();
+        removeDiv();
     });
-
     function removeDiv() {
-        $('.remove-div').click(function () {
-            alert("Hello");
+        $('.remove-div').on('click', function () {
+            $(this).remove();
         })
     }
 
@@ -48,7 +48,7 @@
 
         let pokemonStats = [];
 
-       
+
 
         let pokemonTypes = [];
         let pokemonWeaknesses = [];
@@ -109,7 +109,7 @@
                         button: "Tamam",
                     });
                 }
-                   
+
             }
         });
         })
@@ -135,10 +135,11 @@
 
 
             if (isTypeAdded == false) {
-                let $newDiv = $('<div class="mx-2 selected-type-container selected-type-container-click" data-typeid="' + typeID + '">' + typeName + '</div');
+                let $newDiv = $('<div class="remove-div mx-2 selected-type-container" data-typeid="' + typeID + '">' + typeName + '</div');
 
                 $newDiv.text(typeName);
                 $('#selected-types').append($newDiv);
+                removeDiv();
             }
             else if(isTypeAdded == true){
                 swal({
@@ -169,10 +170,11 @@
 
 
             if (isWeaknessAdded == false) {
-                let $newDiv = $('<div class="mx-2 selected-type-container selected-type-container-click" data-weaknessid="' + weaknessID + '">' + weaknessName + '</div');
+                let $newDiv = $('<div class="selected-type-container remove-div" data-weaknessid="' + weaknessID + '">' + weaknessName + '</div');
 
                 $newDiv.text(weaknessName);
                 $('#selected-weakness').append($newDiv);
+                removeDiv();
             }
             else if (isWeaknessAdded == true) {
                 swal({
@@ -203,10 +205,11 @@
 
 
             if (isAbilityAdded == false) {
-                let $newDiv = $('<div class="mx-2 selected-type-container-click" data-abilityid="' + abilityID + '">' + abilityName + '</div');
+                let $newDiv = $('<div class="selected-type-container remove-div" data-abilityid=' + abilityID + '>' + abilityName + '</div');
 
                 $newDiv.text(abilityName);
                 $('#selected-abilities').append($newDiv);
+                removeDiv();
             }
             else if (isAbilityAdded == true) {
                 swal({
@@ -217,11 +220,5 @@
                 });
             }
         })
-    }
-
-    function removeSelectedType() {
-        $('.selected-type-container-click').click(function () {
-            alert("tıklandı !");
-        });
     }
 </script>

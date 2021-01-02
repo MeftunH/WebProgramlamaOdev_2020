@@ -123,8 +123,14 @@
   <data name="Anasayfa" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Ara" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="en-US" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="Pokemon Ara" xml:space="preserve">
+    <value>Search Pokemon</value>
   </data>
   <data name="tr-TR" xml:space="preserve">
     <value>Turkish</value>

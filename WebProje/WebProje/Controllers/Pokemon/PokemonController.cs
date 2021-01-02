@@ -48,6 +48,7 @@ namespace WebProje.Controllers.Pokemon
                             POKEMON_ID = pokemon.POKEMON_ID,
                             CREATION_DATE = System.DateTime.Now
                         };
+
                         context.USER_POKEMON.Add(userPokemon);
                         context.SaveChanges(); context.SaveChanges();
 
@@ -74,17 +75,18 @@ namespace WebProje.Controllers.Pokemon
 
             try
             {
-                var userWishlist = context.USER_WISHLIST.Where(uw => uw.Id == user.Id && uw.POKEMON_ID == pokemon.POKEMON_ID).ToList();
-                if (userWishlist.Count() != 0)
+                var userPokemons = context.USER_POKEMON.Where(up => up.Id == user.Id && up.POKEMON_ID == pokemon.POKEMON_ID).ToList();
+                if (userPokemons.Count() != 0)
                 {
-                    return Json("Bu Pokemon Zaten İstek Listenizde Ekli !");
+                    return Json("Bu Pokemona Zaten Sahipsiniz !");
                 }
                 else
                 {
-                    var userPokemons = context.USER_POKEMON.Where(up => up.Id == user.Id && up.POKEMON_ID == pokemon.POKEMON_ID).ToList();
-                    if (userPokemons.Count() != 0)
+                    var userWishlist = context.USER_WISHLIST.Where(uw => uw.Id == user.Id && uw.POKEMON_ID == pokemon.POKEMON_ID).ToList();
+                    
+                    if (userWishlist.Count() != 0)
                     {
-                        return Json("Bu Pokemona Zaten Sahipsiniz !");
+                        return Json("Bu Pokemon Zaten İstek Listenizde Ekli !");
                     }
                     else
                     {
