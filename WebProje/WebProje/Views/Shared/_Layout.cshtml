@@ -35,8 +35,8 @@
 
                         <nav class="navbar navbar-light">
                             <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
+                                <input id="search-pokemon-input" class="form-control mr-sm-2" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0 search-pokemon-button" type="submit">@localizer["Ara"]</button>
                             </form>
                         </nav>
                     }
@@ -76,8 +76,7 @@
             $('.search-pokemon-button').on('click', function () {
                 let searchString = "";
                 searchString = $('#search-pokemon-input').val();
-                let url = '@Url.Action("Index","Home")?searchString='+searchString;
-                window.location.href = url;
+                window.location.href = '/Home/Index?searchString=' + searchString;
             });
         }
     </script>
