@@ -8841,23 +8841,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eren Değirmenci\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\maftu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eren Değirmenci\\Source\\Repos\\erendgrmnc\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
+      "projectUniqueName": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
       "projectName": "WebProje",
-      "projectPath": "C:\\Users\\Eren Değirmenci\\Source\\Repos\\erendgrmnc\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
-      "packagesPath": "C:\\Users\\Eren Değirmenci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eren Değirmenci\\Source\\Repos\\erendgrmnc\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\obj\\",
+      "projectPath": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\WebProje.csproj",
+      "packagesPath": "C:\\Users\\maftu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\maftu\\Source\\Repos\\WebProgramlamaOdev_2020\\WebProje\\WebProje\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Eren Değirmenci\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\maftu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
