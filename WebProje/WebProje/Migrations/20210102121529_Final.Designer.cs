@@ -10,8 +10,8 @@ using WebProje.Models;
 namespace WebProje.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210101203330_migrate2")]
-    partial class migrate2
+    [Migration("20210102121529_Final")]
+    partial class Final
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
