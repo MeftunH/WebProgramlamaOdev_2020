@@ -24,7 +24,7 @@ namespace WebProje.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {   //Connection String Buraya Yazılacak.
-            optionsBuilder.UseSqlServer("server=DESKTOP-0T12BMS\\SQLEXPRESS; database=corepokedex1;integrated security=true;");
+            optionsBuilder.UseSqlServer("server=DESKTOP-0T12BMS\\SQLEXPRESS; database=corepokedex14;integrated security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -65,7 +65,7 @@ namespace WebProje.Areas.Identity.Pages.Account.Manage
             if (img != null)
             {
                 string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, path);
-                fileName = Guid.NewGuid().ToString() + "-" + img.FileName;
+                fileName = DateTime.Now.ToString("yymmssff") + "-" + img.FileName;
                 string filePath = Path.Combine(uploadDir, fileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
