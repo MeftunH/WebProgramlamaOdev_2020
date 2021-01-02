@@ -33,12 +33,12 @@
                     @if (User.Identity.IsAuthenticated)
                     {
 
-                        <nav class="navbar navbar-light">
-                            <form class="form-inline">
-                                <input id="search-pokemon-input" class="form-control mr-sm-2" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
-                                <button class="btn btn-outline-success my-2 my-sm-0 search-pokemon-button" type="submit">@localizer["Ara"]</button>
-                            </form>
-                        </nav>
+                    <nav class="navbar navbar-light">
+                        <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
+                            <input class="form-control mr-sm-2" id="searchString" name="searchString" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
+                        </form>
+                    </nav>
                     }
                     <ul class="navbar-nav mr-auto">
                         @if (User.Identity.IsAuthenticated)

@@ -54,6 +54,20 @@
     }
 </div>
 <script>
+        $(document).ready(function () {
+            searchPokemon();
+        })
+
+        function searchPokemon() {
+            $('.search-pokemon-button').on('click', function () {
+                let searchString = "";
+                searchString = $('#search-pokemon-input').val();
+                let url = '@Url.Action("Index","Home")?searchString='+searchString;
+                window.location.href = url;
+            });
+        }
+</script>
+<script>
     $(document).ready(function () {
 
         goToPokemonPage();
