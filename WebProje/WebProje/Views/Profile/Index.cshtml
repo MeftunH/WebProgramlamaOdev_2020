@@ -8,20 +8,26 @@
     body { background-image: url('https://cdn.wallpapersafari.com/66/28/gVMaD4.png'); margin: 0; }
     </style>
 }
-<h1>Profile</h1>
 <div class="column">
     <div class="col-md-6" style="left:40%;right:50%">
         <img src="@("~/images/user/"  + Model.Imgurl)" alt="Avatar" class="circular" style="height:200px; width:200px; border-radius:200px; border:10px solid #fff" asp-append-version="true" />
         <br />
         <h2>@Model.UserName</h2>
     </div>
+    <br />
+    <div class="col-md-6" style="left:40%;right:50%">
+        <a href=".@Url.Action("Index","Wishlist")" style="background-color: cadetblue; color: black; border: 2px; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block;">Go to Wish List</a>
+    </div>
+    <br />
     <div class="form-group" style="left:40%;right:50%">
         <label asp-for="USER_ABOUT">User About</label>
         <textarea asp-for="USER_ABOUT" class="form-control" disabled rows="4"></textarea>
         <span asp-validation-for="USER_ABOUT" class="text-danger"></span>
     </div>
+
     <div>
         <div>
+            <label>My purchased Pokemons</label>
             @await Component.InvokeAsync(typeof(WebProje.ViewComponents.Profile.Pokemons), new { userid = Model.Id })
         </div>
     </div>

@@ -12,5 +12,6 @@
     <WebStackScaffolding_IsPartialViewSelected>True</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_DbContextTypeFullName>WebProje.Models.Context</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_LayoutPageFile />
   </PropertyGroup>
 </Project>
