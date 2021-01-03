@@ -106,7 +106,7 @@ namespace WebProje.Areas.Identity.Pages.Account
             if (img != null)
             {
                 string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, path);
-                fileName = DateTime.Now.ToString("yymmssff") + "-" + img.FileName;
+                fileName = Guid.NewGuid().ToString() + "-" + img.FileName;
                 string filePath = Path.Combine(uploadDir, fileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -139,7 +139,7 @@ namespace WebProje.Areas.Identity.Pages.Account
                 string toBeParsedStr = Input.USER_BIRTHDAY;
                 toBeParsedStr = toBeParsedStr.Substring(0, 10);
                 Input.USER_BIRTHDAY = toBeParsedStr;
-                var user = new User { UserName = Input.Email, Email = Input.Email, Name = Input.Name, Surname = Input.Surname, USER_BIRTHDATE = Convert.ToDateTime(DateTime.ParseExact(Input.USER_BIRTHDAY, "MM/dd/yyyy", CultureInfo.InvariantCulture)), Imgurl = profileImage, USER_BALANCE = 10000 };
+                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname,USER_BIRTHDATE = Convert.ToDateTime(DateTime.ParseExact(Input.USER_BIRTHDAY,"MM/dd/yyyy",CultureInfo.InvariantCulture)), Imgurl = profileImage };
 
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
