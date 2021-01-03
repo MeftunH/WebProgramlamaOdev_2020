@@ -52,7 +52,7 @@
                     </ul>
 
                     <partial name="/Views/Shared/_LoginPartial.cshtml" />
-                     <partial name="_Culture" />
+
                 </div>
 
             </div>
@@ -64,11 +64,11 @@
         </main>
     </div>
 
+
     <script>
         $(document).ready(function () {
             searchPokemon();
         })
-
         function searchPokemon() {
             $('.search-pokemon-button').on('click', function () {
                 let searchString = "";
