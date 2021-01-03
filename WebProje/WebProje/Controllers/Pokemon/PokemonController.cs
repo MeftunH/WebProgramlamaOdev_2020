@@ -50,6 +50,7 @@ namespace WebProje.Controllers.Pokemon
                         };
 
                         context.USER_POKEMON.Add(userPokemon);
+                        user.USER_BALANCE = user.USER_BALANCE - pokemon.POKEMON_PRICE;
                         context.SaveChanges(); context.SaveChanges();
 
                         return Json("success");
