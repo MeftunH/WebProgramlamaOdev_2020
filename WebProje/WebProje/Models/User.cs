@@ -18,7 +18,7 @@ namespace WebProje.Models
         [Column(TypeName = "nvarchar(50)")]
         public string Surname { get; set; }
         [PersonalData]
-        [Column(TypeName="nvarchar(400)")]
+        [Column(TypeName = "nvarchar(400)")]
         public string USER_ABOUT { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]

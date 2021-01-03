@@ -92,7 +92,8 @@ namespace WebProje.Areas.Identity.Pages.Account.Manage
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             var userabout = user.USER_ABOUT;
             Username = userName;
-
+            var userbalance = user.USER_BALANCE;
+            ViewData["usrblnc"] = user.USER_BALANCE;
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,

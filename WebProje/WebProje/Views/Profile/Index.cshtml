@@ -3,23 +3,25 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 @section profile{
     <style type="text/css">
         body {
             background-image: url('https://cdn.wallpapersafari.com/66/28/gVMaD4.png');
             margin: 0;
-            color:#fff;
+            color: #fff;
         }
 
         .profile-container {
             background-color: rgba(8, 98, 80, 0.88);
             height: 100%;
         }
-     
+
         .about-container {
             border: 2px solid white;
             width: 100%;
         }
+
         .row {
             margin-top: 40px;
         }
@@ -64,68 +66,71 @@
         .label a {
             color: inherit;
         }
-        .social-container{
-         
+
+        .social-container {
         }
 
-        .white-text{
-            color:#fff;
+        .white-text {
+            color: #fff;
         }
     </style>
 }
 <header class="header">
-<div class="container">
-    <div style="padding-top:20px;">
+    <div class="container">
+        <div style="padding-top:20px;">
 
-        <div class="row" style="margin-top:0px;">
-            <div class="col-md-9">
-                <h2 style="font-size:38px;color:#fff;"><strong>@Model.Name  @Model.Surname</strong></h2>
+            <div class="row" style="margin-top:0px;">
+                <div class="col-md-9">
+                    <h2 style="font-size:38px;color:#fff;"><strong>@Model.Name  @Model.Surname</strong></h2>
+                </div>
+                <div class="col-md-3">
+                    <div class="button" style="float:right;margin-left:3px;">
+                        <a href="@Url.Action("Index","Wishlist")" class="btn btn-primary btn-sm ">İstek Listesi</a>
+                    </div>
+                    <div class="button" style="float:right;">
+                        <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-warning btn-sm ml-2">Profili Düzenle</a>
+                    </div>
+
+                </div>
             </div>
+
+        </div>
+        <span class="number white-text" style="font-size:18px">Bakiye: @Model.USER_BALANCE $<strong></strong></span>
+        <div class="row" style="margin-top:20px;">
             <div class="col-md-3">
-                <div class="button" style="float:right;margin-left:3px;">
-                    <a href="@Url.Action("Index","Wishlist")" class="btn btn-primary btn-sm ">İstek Listesi</a>
+                <img src="@("~/images/user/"  + Model.Imgurl)" alt="Avatar" class="rounded-circular" style="height:200px; width:200px;background-color:#fff;padding:20px;" ; asp-append-version="true" />
+            </div>
+
+            <div class="col-md-9 text-center social-container">
+
+                @if (Model.PhoneNumber != null)
+                {
+                    <span class="number white-text" style="font-size:18px">@Model.PhoneNumber:<strong></strong></span>
+
+                }
+
+                else
+                {
+                    <span class="number white-text" style="font-size:18px">Kullanıcıya Ait Telefon Bilgisi Girilmemiş<strong></strong></span>
+                }
+                <br />
+                <br />
+                <span class="number white-text" style="font-size:18px">Email: @Model.Email<strong></strong></span>
+                <div class="button white-text" style="padding-top:18px">
+                    <a href="mailto:@Model.Email" class="btn btn-success btn-block white-text">@localizer["Email Gönder"]</a>
                 </div>
-                <div class="button" style="float:right;">
-                    <a  asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-warning btn-sm ml-2">Profili Düzenle</a>
+                <div class="social-icons" style="padding-top:18px">
+                    <a href="#">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x" style="color:#3AAA64"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row" style="margin-top:20px;">
-        <div class="col-md-3">
-            <img src="@("~/images/user/"  + Model.Imgurl)" alt="Avatar" class="rounded-circular" style="height:200px; width:200px;background-color:#fff;padding:20px;"; asp-append-version="true" />
-        </div>
-
-        <div class="col-md-9 text-center social-container">
-            @if (Model.PhoneNumber != null)
-            {
-                <span class="number white-text" style="font-size:18px">@Model.PhoneNumber:<strong></strong></span>
-
-            }
-
-            else
-            {
-                <span class="number white-text" style="font-size:18px">Kullanıcıya Ait Telefon Bilgisi Girilmemiş<strong></strong></span>
-            }
-            <br />
-            <br />
-            <span class="number white-text" style="font-size:18px">Email: @Model.Email<strong></strong></span>
-            <div class="button white-text" style="padding-top:18px">
-                <a href="mailto:@Model.Email" class="btn btn-success btn-block white-text">Email Gönder</a>
-            </div>
-            <div class="social-icons" style="padding-top:18px">
-                <a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x" style="color:#3AAA64"></i>
-                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-  </header>
+</header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
