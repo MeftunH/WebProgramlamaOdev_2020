@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -135,7 +136,10 @@ namespace WebProje.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname, Imgurl = profileImage };
+                string toBeParsedStr = Input.USER_BIRTHDAY;
+                toBeParsedStr = toBeParsedStr.Substring(0, 10);
+                Input.USER_BIRTHDAY = toBeParsedStr;
+                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname,USER_BIRTHDATE = Convert.ToDateTime(DateTime.ParseExact(Input.USER_BIRTHDAY,"MM/dd/yyyy",CultureInfo.InvariantCulture)), Imgurl = profileImage };
 
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
