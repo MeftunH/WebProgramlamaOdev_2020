@@ -1,5 +1,5 @@
 ﻿@model List<WebProje.Models.Weakness>
-
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
 <div>
     @foreach (var weakness in Model)
     {
@@ -11,7 +11,7 @@
                         <div>@weakness.WEAKNESS_ID</div>
                     </div>
                     <div class="d-flex flex-row justify-content-between ml-2">
-                        <div>Zayıflık Adı:</div>
+                        <div>@localizer["Zayıflık Adı"]:</div>
                         <div>@weakness.WEAKNESS_NAME</div>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex flex-row justify-content-between">
-                    <button class="btn btn-lg btn-danger weakness-delete-button" data-weaknessid="@weakness.WEAKNESS_ID">Sil</button>
+                    <button class="btn btn-lg btn-danger weakness-delete-button" data-weaknessid="@weakness.WEAKNESS_ID">@localizer["Sil"]</button>
                     <button type="button" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#editWeaknessModal-@weakness.WEAKNESS_ID">
-                        Düzenle
+                        @localizer["Düzenle"]
                     </button>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Pokemon Zayıflığını Düzenle</h5>
+                        <h5 class="modal-title">@localizer["Pokemon Zayıflığını Düzenle"]</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                        <button type="button" class="btn btn-primary weakness-edit-submit" data-weaknessid="@weakness.WEAKNESS_ID">Kaydet</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@localizer["Kapat"]</button>
+                        <button type="button" class="btn btn-primary weakness-edit-submit" data-weaknessid="@weakness.WEAKNESS_ID">@localizer["Kaydet"]</button>
                     </div>
                 </div>
             </div>
