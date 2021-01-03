@@ -14,6 +14,7 @@ namespace WebProje.Controllers.Profile
         {
 
             Models.User user = context.USER.Where(u => u.Email == User.Identity.Name).FirstOrDefault();
+          
             return View(user);
         }
     }

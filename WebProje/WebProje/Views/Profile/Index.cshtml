@@ -9,6 +9,7 @@
     </style>
 }
 <div class="column">
+
     <div class="col-md-6" style="left:40%;right:50%">
         <img src="@("~/images/user/"  + Model.Imgurl)" alt="Avatar" class="circular" style="height:200px; width:200px; border-radius:200px; border:10px solid #fff" asp-append-version="true" />
         <br />
@@ -24,6 +25,17 @@
         <textarea asp-for="USER_ABOUT" class="form-control" disabled rows="4"></textarea>
         <span asp-validation-for="USER_ABOUT" class="text-danger"></span>
     </div>
+
+    <div class="form-group " style="left:40%;right:50%">
+        <label asp-for="USER_BALANCE">User Balance</label>
+        <input asp-for="USER_BALANCE" class="form-control" disabled />
+        <span asp-validation-for="USER_BALANCE" class="text-danger"></span>
+    </div>
+
+    @*<div class="form-group">
+        <label>User balance:</label>
+        <div>@Html.DisplayFor(model => model.USER_BALANCE)</div>
+    </div>*@
 
     <div>
         <div>

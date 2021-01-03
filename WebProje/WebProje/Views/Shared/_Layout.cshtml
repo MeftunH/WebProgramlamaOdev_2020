@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Builder
 @using Microsoft.Extensions.Options
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
 @RenderSection("head", required: false)
 @RenderSection("profile", required: false)
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
     <link href="~/css/Layout/Layout.css" rel="stylesheet" />
     <link href="~/css/NewPokemon/NewPokemon.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
     <script src="~/jquery/jquery.js"></script>
     <title>Layout</title>
 </head>
@@ -34,12 +36,12 @@
                     @if (User.Identity.IsAuthenticated)
                     {
 
-                    <nav class="navbar navbar-light">
-                        <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
-                            <input class="form-control mr-sm-2" id="searchString" name="searchString" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
-                        </form>
-                    </nav>
+                        <nav class="navbar navbar-light">
+                            <form asp-controller="Home" asp-action="Index" method="get" class="form-inline">
+                                <input class="form-control mr-sm-2" id="searchString" name="searchString" type="search" placeholder="@localizer["Pokemon Ara"]" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">@localizer["Ara"]</button>
+                            </form>
+                        </nav>
                     }
                     <ul class="navbar-nav mr-auto">
                         @if (User.Identity.IsAuthenticated)
@@ -48,10 +50,11 @@
                                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Home"]</a>
                                 <span class="sr-only">(current)</span>
                             </li>
-                            
+
                             <li class="nav-item active">
                                 <a class="nav-link" href=".@Url.Action("Index","Wishlist")">Wish List</a>
-                            </li>
+                            </li>                      
+                           
                         }
                     </ul>
 

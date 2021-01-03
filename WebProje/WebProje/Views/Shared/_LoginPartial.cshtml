@@ -11,6 +11,7 @@
                 @User.Identity.Name
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                @*@ViewData["userbalance"]*@
                 @if (User.IsInRole("Admin"))
                 {
 
@@ -20,6 +21,7 @@
                 }
                 <a class="nav-link" href="@Url.Action("Index","Profile")">Profil</a>
                 <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Kullanıcı Bilgilerini Düzenle</a>
+
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout">
                     <button type="submit" class="nav-link btn btn-link">Logout</button>
                 </form>

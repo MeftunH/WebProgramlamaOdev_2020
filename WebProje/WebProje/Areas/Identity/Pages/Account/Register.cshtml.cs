@@ -135,8 +135,8 @@ namespace WebProje.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname, Imgurl = profileImage };
-
+                var user = new User { UserName = Input.Email, Email = Input.Email,Name=Input.Name,Surname=Input.Surname, Imgurl = profileImage,USER_BALANCE=10000 };
+               
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
